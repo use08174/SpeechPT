@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="main_page_style.css">
+    <style>
+        .result{
+            width: 830px;
+            height: 1329px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            border: 1.5px solid #DFDFDF;
+
+background: #FFF;
+        }
+        
+        .speed,.pause,.filler{
+            margin-top:30px;
+            margin-bottom:30px;
+            border: 2px solid black;
+            border-radius: 20px;
+            margin-right:40px;
+            margin-left:40px;
+
+            background: #113178;
+        }
+
+        .up{
+            height:100px;
+            width: 100;
+            padding-left:20px;
+
+            color:white;
+            
+        }
+
+        .down{
+            height:180px;
+            width: 100%%;
+            border: 1px solid black;
+            border-radius: 20px;
+
+            background:white;
+            
+        
+        }
+        .long{
+            color: #909090;
+            font-family: NanumSquare Neo;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 200%; /* 26px */
+            letter-spacing: -0.13px;
+
+            width: 657px;
+        }
+        h3{
+            padding:20px;
+            padding-bottom:10px;
+            margin:1px;
+            color: #000;
+
+            font-family: NanumSquare Neo;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            letter-spacing: -0.25px;
+
+            margin-left:10px;
+
+        }
+        .lo{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .res{
+            color: #000;
+            text-align: center;
+            font-family: NanumSquare Neo;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            letter-spacing: -0.2px;
+            }
+
+ 
+
+
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="#home" class="logo">Speech PT</a>
+        <div class="menu-items">
+            <a href="#news">발표 분석</a>
+            <a href="#contact">자료 요약</a>
+            <a href="#about">멤버 소개</a>
+            <a href="#more">History</a>
+        </div>
+    </div>
+
+    <div class="result">
+        <div class="three">
+            <h2 class="res">분석 결과</h2>
+
+            <div class="speed">
+                <div class="up">
+                    <h2>Speed</h2>
+                    <p>발표 속도의 평균과 표준편차를 계산</p>
+                </div>
+                <div class="down">
+                    <h3>느림</h3>
+                    <hr>
+                    <div class="lo">
+                    <p class="long">발표의 속도가 느립니다.
+                        발표를 할 때 더 일관된 속도로 말하는 것이 도움이 될 것입니다.
+                        너무 빠르거나 느리게 말하지 않고 중요한 내용을 강조하기 위해 특정 부분에서는 조절이 필요합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pause">
+                <div class="up">
+                    <h2>Pause</h2>
+                    <p>발표 도중 일시정지 시간을 분석</p>
+                </div>
+                <div class="down">
+                    <h3>2회</h3>
+                    <hr>
+                    <div class="lo">
+                    <p class="long">일시정지 시간이 적절합니다.
+                        발표 중요 부분에서 적절한 침묵을 활용하면서도 말의 흐름을 유지하고 있습니다.
+                        이러한 패턴을 유지하며 발표를 진행하시면 좋을 것입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filler">
+                <div class="up">
+                    <h2>Filler words</h2>
+                    <p>흔히 사용되는 보충어(예:'그', '음', '아' 등)을 감지</p>
+                </div>
+                <div class="down">
+                    <h3>15회</h3>
+                    <hr>
+                    <div class="lo">
+                    <p class="long">보충어 사용이 많습니다. 발표할 때 보충어를 줄이고, 구체적이고 명확한 단어를 사용해보세요.
+                        발표 중에 자주 사용되는 보충어를 인식하고, 침묵이나 다른 전환 문구를 활용하여 발표의 흐름을 끊지 않으면서도 보충어를 최소화하세요.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</body>
+</html>
