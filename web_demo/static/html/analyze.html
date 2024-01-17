@@ -29,7 +29,7 @@
 </head>
 <body>
     <input type="file" id="audioFile" accept="audio/*" onchange="uploadAudio()">
-    <button src="/static/upload_button.png" class="custom-upload-btn" onclick="document.getElementById('audioFile').click();">
+    <button src="/static/images/upload_button.png" class="custom-upload-btn" onclick="document.getElementById('audioFile').click();">
     <div id="result">파일을 선택하세요.</div>
 
     <script>
@@ -44,7 +44,7 @@
             formData.append('file', file);
 
             try {
-                const response = await fetch('http://localhoupload/st:8000/', {
+                const response = await fetch('http://localhost:8000/upload/', {
                     method: 'POST',
                     body: formData
                 });
