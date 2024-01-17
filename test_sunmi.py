@@ -1,1 +1,0 @@
-print("sumin...hey...love u...")
