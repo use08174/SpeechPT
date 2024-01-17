@@ -4,8 +4,8 @@ from pyAudioAnalysis import ShortTermFeatures, MidTermFeatures
 import matplotlib.pyplot as plt
 
 # 1. Read audio file
-[Fs, x] = aIO.read_audio_file(r"C:\Users\82102\Desktop\프메\test_audio.wav")  # 음성 파일 경로를 지정하세요.
-'''Fs ; 44100, 
+[Fs, x] = aIO.read_audio_file(r"SpeechPT/fastapi/sumin_with_pause.wav")  # 음성 파일 경로를 지정하세요.
+'''Fs ; 44100,
 x : [[   0    0]
  [   0    0]
  [   0    0]
@@ -31,6 +31,6 @@ for i in range(len(vad)):
         segments.append((segment_start, i * mid_step))
         segment_start = None
 # VAD를 실행한 후 반환된 음성 세그먼트에 대해 반복
-for start,end in segments : 
+for start,end in segments :
     # 세그먼트의 시작과 종료 시간을 출력합니다.
     print(f"Voice segment: {start} to {end}")
