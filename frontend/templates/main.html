@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-    <title>main page</title>
-    <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <title>AI 발표 분석</title>
+  <meta name="description" content="AI 발표 분석 웹 개발 프로젝트">
+  <meta name="author" content="프로메테우스">
+  <link rel="stylesheet" href="../static/css/main.css">
 </head>
+
 <body>
-    <h1>this is a main page.</h1>
+
+  <div class="full-page">
+    <div class="top-block"></div>
+    <div class="top-body-division"></div>
+    
+    <div class="button-block">
+      <span class="analyze-button">
+        <a href="web_demo/static/html/analyze.html">발표 분석</a>
+      </span>
+      <span class="summary-button">
+        <a href="web_demo/static/html/summary.html">자료 요약</a>
+      </span>
+      <span class="member-button">
+        <a href="#about">멤버 소개</a>
+      </span>
+      <span class="history-button">
+        <a href="#more">History</a>
+      </span>
+    </div>
+
+    <span class="logo">Speech PT</span>
+
+    <div class="analyze-box">
+        <div class="analyze-box-detail"></div>
+      <span class="box-font">발표 분석</span>
+      <span class="box-explanation">업로드된 발표 영상의 음성과 얼굴을 분석합니다.</span>
+      <div class="box-img-human"></div>
+    </div>
+    
+    <div class="summary-box">
+        <div class="analyze-box-detail"></div>
+      <span class="box-font">자료 요약</span>
+      <span class="box-explanation">발표 자료(ppt, docx, pdf)의 문자를 추출하여 요약합니다.</span>
+      <div class="box-img-script"></div>
+    </div>
+
+  </div>
 </body>
 </html>
