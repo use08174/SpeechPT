@@ -1,0 +1,73 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Emotion Detection Result</title>-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
+<!--<style>-->
+<!--    .custom-button {-->
+<!--        background-color: blue;-->
+<!--        color: white;-->
+<!--    }-->
+<!--</style>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container mt-5">-->
+<!--        <h1 class="display-4">Emotion Detection Result</h1>-->
+<!--        <div class="alert alert-success mt-3" role="alert">-->
+<!--            Emotion Detected: {{ result_data.emotion }}-->
+<!--        </div>-->
+<!--        <div class="alert alert-info" role="alert">-->
+<!--            Time Elapsed (Preprocessing): {{ result_data.time_elapsed_preprocessing }} seconds-->
+<!--        </div>-->
+<!--        <div class="alert alert-info" role="alert">-->
+<!--            Time Elapsed: {{ result_data.time_elapsed }} seconds-->
+<!--        </div>-->
+<!--        <button class="custom-button" onclick="redirectToHomepage()">Go to Homepage</button>-->
+<!--    </div>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>-->
+<!--   <script>-->
+<!--        function redirectToHomepage() {-->
+<!--            window.location.href = '/';-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Emotion Recognition Result</h1>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const resultDiv = document.getElementById("result");
+        fetch("/detect")
+            .then(response => response.json())
+            .then(data => {
+                const emotion = data.emotion;
+                const resultHTML = `<p>Detected Emotions: ${emotion.join(", ")}</p>`;
+                resultDiv.innerHTML = resultHTML;
+            })
+            .catch(error => console.error("Error fetching result:", error));
+    </script>
+</body>
+</html>
