@@ -35,39 +35,39 @@
 <!--</body>-->
 <!--</html>-->
 
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Result</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Emotion Recognition Result</h1>
-        <div id="result"></div>
+      <h1>Emotion Recognition Result</h1>
+      <div id="result">
+        {% if result_data %}
+        <p>{{ result_data }}</p>
+        {% else %}
+        <p>결과를 찾을 수 없습니다.</p>
+        {% endif %}
+      </div>
     </div>
-
+    <!--
     <script>
-        const resultDiv = document.getElementById("result");
-        fetch("/detect")
-            .then(response => response.json())
-            .then(data => {
-                const emotion = data.emotion;
-                const resultHTML = `<p>Detected Emotions: ${emotion.join(", ")}</p>`;
-                resultDiv.innerHTML = resultHTML;
-            })
-            .catch(error => console.error("Error fetching result:", error));
+      const resultDiv = document.getElementById("result");
+      fetch("/detect")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          //const resultHTML = data;
+          //resultDiv.innerHTML = resultHTML;
+          resultDiv.textContent = JSON.stringify(data);
+        })
+        .catch((error) => console.error("Error fetching result:", error));
     </script>
-</body>
+  </body>
+</html>
+-->
+  </body>
 </html>
