@@ -11,41 +11,44 @@
 
 <body>
 
-  <div class="full-page">
+  <div id="full-page">
+    
     <div class="top-block"></div>
     <div class="top-body-division"></div>
-    
+
     <div class="button-block">
       <span class="analyze-button">
-        <a href="web_demo/static/html/analyze.html">발표 분석</a>
+        <a href="/frontend/templates/pt_upload.html">발표 분석</a>
       </span>
       <span class="summary-button">
-        <a href="web_demo/static/html/summary.html">자료 요약</a>
+        <a href="/frontend/templates/sum_upload.html">자료 요약</a>
       </span>
       <span class="member-button">
-        <a href="#about">멤버 소개</a>
+        <a href="/frontend/templates/member.html">멤버 소개</a>
       </span>
       <span class="history-button">
-        <a href="#more">History</a>
+        <a href="https://github.com/use08174/SpeechPT">History</a>
       </span>
     </div>
 
-    <span class="logo">Speech PT</span>
+    <a href = "/frontend/templates/main.html"  class="logo">Speech PT</a>
 
-    <div class="analyze-box">
-        <div class="analyze-box-detail"></div>
+    <a class="analyze-box animated-link" href="/frontend/templates/pt_upload.html">
       <span class="box-font">발표 분석</span>
       <span class="box-explanation">업로드된 발표 영상의 음성과 얼굴을 분석합니다.</span>
       <div class="box-img-human"></div>
-    </div>
-    
-    <div class="summary-box">
-        <div class="analyze-box-detail"></div>
+    </a>
+
+    <a class="summary-box animated-link" href="/frontend/templates/sum_upload.html">      
       <span class="box-font">자료 요약</span>
       <span class="box-explanation">발표 자료(ppt, docx, pdf)의 문자를 추출하여 요약합니다.</span>
       <div class="box-img-script"></div>
-    </div>
+    </a>
+
 
   </div>
+
+  <script src="/frontend/static/js/main.js"></script>
 </body>
+
 </html>
