@@ -10,16 +10,19 @@ from fastapi import HTTPException
 from backend.models.video.eye_tracking.example import analyze_gaze
 #from fastapi.middleware.cors import CORSMiddleware
 
+from audio_util import extract_audio
+from backend.models.speech.speech_analysis import *
+
 import numpy as np
 import cv2
 import tempfile
-import os
+import os 
 
 
 async def analyze_file(file: UploadFile):
     if file.filename.endswith(".mp4"):
         # emotion recognition task
-        '''contents = await file.read()
+        contents = await file.read()
         np_arr = np.frombuffer(contents, np.uint8)
         with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp_img:
             tmp_img.write(np_arr)
@@ -29,7 +32,7 @@ async def analyze_file(file: UploadFile):
         os.unlink(tmp_img_path)
 
         emotion_list = onnx_inference.emotions_detector(cap)
-        emotion_result = onnx_inference.emotion_detection_result(emotion_list)'''
+        emotion_result = onnx_inference.emotion_detection_result(emotion_list)
 
         # eye tracking task
         try:
@@ -38,9 +41,9 @@ async def analyze_file(file: UploadFile):
                 video.write(file.file.read())
             output_path='ouput2.mp4'
         
-            result = analyze_gaze(video_path,output_path)
+            gaze_result = analyze_gaze(video_path,output_path)
 
-            return result
+            # return result
 
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -48,9 +51,20 @@ async def analyze_file(file: UploadFile):
         
         
         # speech analysis task
-
+        audio_file = extract_audio(file)
+        stt_result = perform_stt(audio_file)
+        if isinstance(stt_result, tuple):
+            stt_text = stt_result[1]  # Extract the text from the result
+        else:
+            stt_text = stt_result  # Directly use the result if it's not a tuple
+        speech_speed = analyze_speed(audio_file, stt_text)
+        num_pauses, pause_durations = detect_pause(audio_file)
+        filler_words = detect_korean_filler_words(stt_text)
+        os.remove(audio_file)
+        
         # speech_result = analyze_speech(file.file)  # ##############
-        return JSONResponse(content={"emotion": emotion_result})  # ##############, "speech": speech_result}
+        return JSONResponse(content={"emotion": emotion_result, "gaze":gaze_result, "speed": speech_speed,
+                            "pauses": num_pauses, "durations": pause_durations, "filler": filler_words})  # ##############, "speech": speech_result}
     # elif file.filename.endswith((".txt", ".pdf", ".doc", ".docx")):
     #     summarized_text = summarize_text(file.file)
     #     return JSONResponse(content={"summarized_text": summarized_text})
