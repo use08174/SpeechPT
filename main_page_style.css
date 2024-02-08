@@ -1,0 +1,307 @@
+@font-face {
+    font-family: 'made_soul_maze'; /* Name you'll use to refer to the font */
+    src: url('SpeechPT\made_soulmaze\MADE Soulmaze PERSONAL USE.otf') format('otf');/* Path to the font file */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nanum_square_extra_bold'; /* Name you'll use to refer to the font */
+    src: url('css_font_file/NanumSquareNeo/웹폰트/eot/NanumSquareNeoTTF-dEb.eot') format('eot'),
+        url('css_font_file/NanumSquareNeo/웹폰트/woff/NanumSquareNeoTTF-dEb.woff') format('woff'),
+        url('css_font_file/NanumSquareNeo/웹폰트/eot/NanumSquareNeoTTF-dEb.woff2') format('woff2'),
+        url('css_font_file/NanumSquareNeo/OTF/NanumSquareNeoOTF-Eb.otf') format('otf'),
+        url('css_font_file/NanumSquareNeo/TTF/NanumSquareNeo-dEb.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background-image: url('./img_folder/web-background-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu-bar {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(109, 109, 109);
+}
+
+.menu-bar a {
+    display: block;
+    color: #909090;
+    font-family : 'nanum_square_extra_bold';
+    font-size : 20px;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Style for the logo */
+.menu-bar .logo {
+    font-family : 'made_soul_maze';
+    color: #0034A6;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Container for menu items */
+.menu-items {
+    display: flex;
+}
+
+/* Change the color of links on hover */
+.menu-bar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+#audioFile {
+    display: none; /* Hide the file input */
+}
+#result_font1 {
+    color: #909090;
+    text-align: center;
+    font-family: 'NanumSquare Neo';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700px;
+    line-height: normal;
+    letter-spacing: -0.15px;
+}
+
+#result_font2 {
+    color: #BBB;
+    text-align: center;
+    font-family: "NanumSquare Neo";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.12px;
+  position : absolute;
+  justify-content : center;
+  padding-top : 70px;
+}
+#result_font3{
+    color: #909090;
+    font-family: 'NanumSquare Neo';
+    font-size: 15px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 17px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    position : absolute;
+    top : 160px;
+    left : 180px;
+}
+
+#result_svg3 {
+    width: 29.214px;
+    height: 37.182px;
+    flex-shrink: 0;
+}
+
+.bigbox{
+  width : 830px;
+  height : 700px;
+  flex-shrink : 0;
+  border : 1.5px solid #DFDFDF;
+  border-radius : 10px;
+  background : #FFF;
+  color: #909090;
+  text-align: center;
+  font-family: "NanumSquare Neo"; 
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+letter-spacing: -0.2px;  
+  position : absolute;
+  top : 285px;
+  left : 767px;
+  right : 323px;
+  display : flex;
+  justify-content : center;
+  padding-top : 53px;
+}
+
+.custom_upload_btn{
+    cursor: pointer; /* Change cursor style to indicate it's clickable */
+    display: flex;
+    width: 415px;
+    height: 244px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius : 10px;
+    border : 2px dashed #BBB;
+    background : #FCFCFC;     
+  position : absolute;
+  top : 285px;
+  bottom : 971px;
+  left : 323px;
+}
+.upload_btn{
+    width: 415px;
+    height: 244px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius : 10px;
+    border : 2px solid #DFDFDF;
+    background : #FFF;     
+    position : absolute;
+    top : 285px;
+    left : 323px;
+}
+#uploadBox{
+    width: 415px;
+    height: 244px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius : 10px;
+    border : 2px solid #DFDFDF;
+    background : #FFF;     
+    position : absolute;
+    top : 285px;
+    left : 323px;
+}
+
+#delteButton{
+    width: 15.556px;
+    height: 15.556px;
+    transform: rotate(-45deg);
+    flex-shrink: 0;  
+}
+.svg1{
+    position : absolute;
+    top : 59px;
+    left : 187px;
+}
+.svg2{
+    position : absolute;
+    top : 64px;
+    left : 47px;
+}
+.svg3{
+    position : absolute;
+    top : 64px;
+    right : 47px;
+}
+#mov_svg{
+    position: absolute;
+    top: 21px;
+    left : 29px;
+}
+
+.delete_svg{
+    width: 15.556px;
+    height: 15.556px;
+    transform: rotate(315);
+    flex-shrink: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position : absolute;
+    top : 348.5px;
+    left : 659px;
+  }
+#delete_svg svg{
+    width : 100%;
+    height: 100%;
+}
+#newBox{
+    position: absolute;
+    top : 35px;
+    left : 35px;
+    border-radius: 10px;
+    background: #F6F6F6;
+    width: 346px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.newBox2{
+    position: absolute;
+    top : 162px;
+    left : 133px;
+    width: 150px;
+    height: 47px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #0034A6;
+}
+
+#fileNameElementId{
+    color: #909090;
+    font-family: 'NanumSquare Neo';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.15px;
+    position : absolute;
+    top: 22px;
+    left: 87px;
+}
+#fileNameElementId2{
+    color: #FFF;
+    text-align: center;
+    font-family: "NanumSquare Neo";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -0.16px;
+    position: absolute;
+    top : 14px;
+    left : 46px;
+}
+#fileNameElementId3{
+    color: #BBB;
+    font-family: "NanumSquare Neo";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    position: absolute;
+    top: 48px;
+    left: 87px;
+}
+
+
+.circle_container{
+  position : absolute;
+  top: 100px;
+  left : 100px;
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  border: 1px solid white;
+}
+#spinner {
+  position : absolute;
+  top: 170px;
+  left : 410px;
+  margin: calc(50% - 25px) auto;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+
+  border: 3px solid #DFDFDF;  
+  border-top-color: #0034A6;
+  border-radius: 100%;
+  animation:spin 1s ease-in-out infinite;
+}
+@keyframes spin{
+  100%
+  {transform: rotate(360deg);
+  }
+}
