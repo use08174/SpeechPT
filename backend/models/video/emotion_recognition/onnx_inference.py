@@ -1,13 +1,13 @@
 from fastapi import UploadFile
-import onnxruntime as rt
+#import onnxruntime as rt
 import cv2
 import numpy as np
-from PIL import Image
+#from PIL import Image
 from collections import Counter
 
 providers = ['CPUExecutionProvider']
-model = rt.InferenceSession('fast_api/analysis/emotion_recognition/vit_quantized.onnx',
-                            providers=providers)
+#model = rt.InferenceSession('fast_api/analysis/emotion_recognition/vit_quantized.onnx',
+                            #providers=providers)
 
 
 def emotions_detector(video):
