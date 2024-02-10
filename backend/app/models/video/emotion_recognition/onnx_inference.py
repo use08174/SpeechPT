@@ -1,13 +1,12 @@
 from fastapi import UploadFile
-#import onnxruntime as rt
+import onnxruntime as rt
 import cv2
 import numpy as np
-#from PIL import Image
+from PIL import Image
 from collections import Counter
 
 providers = ['CPUExecutionProvider']
-#model = rt.InferenceSession('fast_api/analysis/emotion_recognition/vit_quantized.onnx',
-                            #providers=providers)
+model = rt.InferenceSession('models/video/emotion_recognition/vit_quantized.onnx', providers=providers)
 
 
 def emotions_detector(video):
@@ -19,12 +18,12 @@ def emotions_detector(video):
         if not ret:
             break
 
-        # pil_image = Image.fromarray(frame)
-        # pil_image = Image.fromarray(frame)
-        # image = np.array(pil_image)
+        pil_image = Image.fromarray(frame)
+        pil_image = Image.fromarray(frame)
+        image = np.array(pil_image)
 
-        # face_haar_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-        face_haar_cascade = cv2.CascadeClassifier('fast_api/analysis/haarcascade_frontalface_default.xml')
+        face_haar_cascade = cv2.CascadeClassifier('models/video/haarcascade_frontalface_default.xml')
+        face_haar_cascade = cv2.CascadeClassifier('models/video/haarcascade_frontalface_default.xml')
         faces_detected = face_haar_cascade.detectMultiScale(frame, 1.1, 5, minSize=(30, 30))
 
         for (x, y, w, h) in faces_detected:
