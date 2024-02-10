@@ -1,17 +1,17 @@
 from fastapi import File, UploadFile
 from fastapi.responses import JSONResponse,FileResponse
 # from fast_api import analysis
-from backend.models.video.emotion_recognition import onnx_inference
+from models.video.emotion_recognition import onnx_inference
 # from fast_api.analysis.eye_tracking import *  # ##############
 # from fast_api.analysis.speech_analysis import *  # ##############
 # from fast_api.summarization.text_summarization import *
 from fastapi import HTTPException
 
-from backend.models.video.eye_tracking.example import analyze_gaze
+from models.video.eye_tracking.example import analyze_gaze
 #from fastapi.middleware.cors import CORSMiddleware
 
 from audio_util import extract_audio
-from backend.models.speech.speech_analysis import *
+from models.speech.speech_analysis import *
 
 import numpy as np
 import cv2
@@ -30,6 +30,7 @@ async def analyze_file(file: UploadFile):
         cap = cv2.VideoCapture(tmp_img_path)  # VideoCapture object
         tmp_img.close()
         os.unlink(tmp_img_path)
+
 
         emotion_list = onnx_inference.emotions_detector(cap)
         emotion_result = onnx_inference.emotion_detection_result(emotion_list)

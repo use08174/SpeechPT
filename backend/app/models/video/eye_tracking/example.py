@@ -1,5 +1,5 @@
 import cv2
-from backend.models.video.eye_tracking.gaze_tracking import GazeTracking
+from .gaze_tracking import GazeTracking
 from typing import List
 
 gaze = GazeTracking()
@@ -7,6 +7,7 @@ gaze = GazeTracking()
 def analyze_gaze(video_path:str, output_path:str)->List[str]:
     # video_path = 'minute.mp4'
     video_capture = cv2.VideoCapture(video_path)
+
 
     # 영상 저장 설정
     output_path = 'output2.mp4'
