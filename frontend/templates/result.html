@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <h1>요약된 텍스트 결과</h1>
+
+    {% if result_data %}
+        <h2>세션 ID: {{ result_data.session_id }}</h2>
+
+        {% if file_extension == 'mp4' %}
+            <p>동영상 결과:</p>
+            <!-- video, speech 처리결과
+            <pre>{{ result_data.emotion }}</pre>
+        {% elif file_extension in ['pdf', 'doc', 'docx'] %}
+            <p>요약된 텍스트:</p>
+            <pre>{{ result_data.summarized_text }}</pre>
+        {% else %}
+            <p>결과를 처리할 수 없는 파일 형식입니다.</p>
+        {% endif %}
+    {% else %}
+        <p>결과를 찾을 수 없습니다.</p>
+    {% endif %}
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+   
+    <h1>요약된 결과</h1>
+
+    {% if result_data %}
+        <h2>세션 ID: {{ result_data.session_id}}</h2>
+        {% if result_data.result.emotion is defined %}
+            <p>동영상 결과:</p>
+            <pre>{{ result_data.result.emotion }}</pre>
+        {% elif result_data.result.summarized_text is defined %}
+            <p>요약된 텍스트:</p>
+            <pre>{{ result_data.result.summarized_text }}</pre>
+        {% else %}
+            <p>결과를 처리할 수 없는 파일 형식입니다.</p>
+        {% endif %}
+    {% else %}
+        <p>결과를 찾을 수 없습니다.</p>
+    {% endif %}
+</body>
+</html>
+
+<!-- result.html -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    <h1>요약된 결과</h1>
+
+    <-- {% if result_data %}
+        <h2>세션 ID: {{ result_data.session_id }}</h2>
+
+        {% if result_data.result_type == "text" %}
+            <p>요약된 텍스트:</p>
+            <pre>{{ result_data.result }}</pre>
+        {% elif result_data.result_type == "emotion" %}
+            <p>동영상 결과:</p>
+            <pre>{{ result_data.result }}</pre>
+        {% else %}
+            <p>결과를 처리할 수 없는 파일 형식입니다.</p>
+        {% endif %}
+    {% else %}
+        <p>결과를 찾을 수 없습니다.</p>
+    {% endif %} 
+</body>
+</html> -->
+
+
+
+

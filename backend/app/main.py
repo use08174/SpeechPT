@@ -5,7 +5,7 @@ from fastapi.templating import Jinja2Templates
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 template_directory = os.path.join(BASE_DIR, "tests")
-templates = Jinja2Templates(directory=template_directory)
+templates = Jinja2Templates(directory="../../frontend/templates")
 
 from fastapi.middleware.cors import CORSMiddleware
 import uuid

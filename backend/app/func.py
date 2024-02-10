@@ -1,23 +1,20 @@
-from fastapi import File, UploadFile
-from fastapi.responses import JSONResponse,FileResponse
-# from fast_api import analysis
-from models.video.emotion_recognition import onnx_inference
-# from fast_api.analysis.eye_tracking import *  # ##############
-# from fast_api.analysis.speech_analysis import *  # ##############
-# from fast_api.summarization.text_summarization import *
-from fastapi import HTTPException
-
-from models.video.eye_tracking.example import analyze_gaze
-#from fastapi.middleware.cors import CORSMiddleware
-
-from audio_util import extract_audio
-from models.speech.speech_analysis import *
-
 import numpy as np
 import cv2
 import tempfile
 import os 
+import uuid
 
+from fastapi import File, UploadFile
+from fastapi.responses import JSONResponse,FileResponse
+from fastapi import HTTPException
+
+from models.video.emotion_recognition import onnx_inference
+from models.text.extraction import extract_text_from_file
+from models.text.summarization import summarize_text
+from models.video.eye_tracking.example import analyze_gaze
+from models.speech.speech_analysis import *
+
+from audio_util import extract_audio
 
 async def analyze_file(file: UploadFile):
     if file.filename.endswith(".mp4"):
@@ -66,9 +63,17 @@ async def analyze_file(file: UploadFile):
         # speech_result = analyze_speech(file.file)  # ##############
         return JSONResponse(content={"emotion": emotion_result, "gaze":gaze_result, "speed": speech_speed,
                             "pauses": num_pauses, "durations": pause_durations, "filler": filler_words})  # ##############, "speech": speech_result}
-    # elif file.filename.endswith((".txt", ".pdf", ".doc", ".docx")):
-    #     summarized_text = summarize_text(file.file)
-    #     return JSONResponse(content={"summarized_text": summarized_text})
+    elif file.filename.endswith((".pdf", ".doc", ".docx")):
+        file_extension = file.filename.split('.')[-1].lower()
+        extracted_text = extract_text_from_file(file_extension, await file.read())
+        print("Extracted Text:", extracted_text)
+
+        summarized_text = summarize_text(extracted_text) 
+        print("summarized_text:", summarized_text) 
+
+        # return JSONResponse(content={"summarized_text": summarized_text})
+        return {"summarized_text": summarized_text}
+
     else:
         raise HTTPException(
             status_code=415, detail='Unsupported file format'
