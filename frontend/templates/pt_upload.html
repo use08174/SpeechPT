@@ -1,10 +1,125 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>main page</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h1>this is a main page.</h1>
-</body>
+  <head>
+      <title>Upload Presentation</title>
+      <link rel="stylesheet" href="/static/css/pt_upload.css">
+      <style>
+      </style>
+  </head>
+  
+  <body>
+
+      <div class="menu-bar">
+        <a href="/" class="logo">Speech PT</a>
+        <div class="menu-items">
+            <a href="/pt_upload/">발표 분석</a>
+            <a href="/sum_upload/">자료 요약</a>
+            <a href="/members/">멤버 소개</a>
+        </div>
+      </div>
+
+
+      <input type="file" id="audioFile" accept=".mp4" onchange="uploadFile()">
+      <button src="/static/upload_button.png" class="custom_upload_btn" onclick="document.getElementById('audioFile').click();">
+        <svg class = 'svg1' xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <mask id="mask0_39_984" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+            <path d="M0.444824 0H39.9999V39.5551H0.444824V0Z" fill="white"/>
+          </mask>
+          <g mask="url(#mask0_39_984)">
+            <path d="M5.38916 19.7842V34.6105H35.0555V19.7773" stroke="#909090" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M27.6388 12.3609L20.2222 4.94434L12.8057 12.3609" stroke="#909090" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.2153 26.37V4.94434" stroke="#909090" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      <div id = 'result_font1'>분석할 발표 영상을 업로드 해주세요</div> 
+        <div id = 'result_font2'>
+          *mp4, mov파일<br>
+          *파일당 최대 50MB</div>
+      </button>   
+    
+      <button class= 'delete_svg' style="display: none;" onclick="removeFile()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" fill="none">
+          <path d="M5.5 6L16.4999 16.9999" stroke="#909090" stroke-width="2" stroke-linecap="round"/>
+          <path d="M5.5 17L16.4999 6.00012" stroke="#909090" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      
+      <button class = 'newBox2' style="display: none;"  onclick="anal()"></button> 
+      <div class="circle_container">
+          <div id = 'spinner' style="display: none;"></div>
+      </div>
+      <div>
+        <svg class="svg4" style="display: none;" width="62" height="62"  fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.7222 29.9746L28.4368 38.6893L44.3282 22.7979" stroke="#BBBBBB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="31" cy="31" r="29" stroke="#BBBBBB" stroke-width="4"/>
+        </svg>
+      </div>  
+      <div class = 'bigbox'>
+        <svg class='svg2'xmlns="http://www.w3.org/2000/svg" width="275" height="2" viewBox="0 0 275 2" fill="none">
+          <path d="M0 1L275 0.999976" stroke="#BBBBBB" stroke-width="2"/>
+        </svg>
+        <svg class = 'svg3' xmlns="http://www.w3.org/2000/svg" width="275" height="2" viewBox="0 0 275 2" fill="none">
+          <path d="M0 1L275 1.00002" stroke="#BBBBBB" stroke-width="2"/>
+        </svg>
+
+      <!--분석결과 칸 -->
+      <div class="large-box">
+        <div class="line first-line-result"></div>
+        <div class="analysis-result">분석 결과</div>
+        <div class="line second-line-result"></div>
+            <div class="icon"></div>
+        <!-- 첫 번째 네모: Speed -->
+        <div class="box-speed-box">
+            <div class="text-speed-text">Speed</div>
+            <div class="subtext-1">발표 속도의 평균과 표준편차를 계산</div>
+            <img src="../static/img/speedometer.png" alt="Speedometer" class="icon speed-icon">
+            <div class="subtext-3" id = "result-speed"></div>
+        </div>
+    
+        <!-- 두 번째 네모: 라인 -->
+        <div class="line-box-2"></div>
+    
+        <!-- 세 번째 네모: Pause -->
+        <div class="box pause-box">
+            <div class="text-pause-text">Pause</div>
+            <div class="subtext-3">발표 도중 평균 일시정지 시간을 분석</div>
+            <img src="../static/img/pause.png" alt="Pause" class="icon pause-icon">
+            <div class="subtext-3" id = "result-pause"></div>
+        </div>
+    
+        <!-- 네 번째 네모: 라인 -->
+        <div class="line-box-4"></div>
+    
+        <!-- 다섯 번째 네모: Filler words -->
+        <div class="box-filler-words-box">
+            <div class="text filler-words-text">Filler words</div>
+            <div class="subtext-5">흔히 사용되는 보충어(예: ‘그', ‘음', ‘아' 등)을 감지</div>
+            <img src="../static/img/magnifying.png" alt="Magnifying" class="icon filler-words-icon">
+            <div class="subtext-3" id = "result-filler-words"></div>
+        </div>
+    
+        <!-- 여섯 번째 네모: 라인 -->
+        <div class="line-box-6"></div>
+
+        <!--감정분석-->
+        <div >
+            <div class="text filler-words-text">표정 분석</div>
+            <div class="subtext-5">적절한 표정인지 분석</div>
+            <div class="subtext-3" id = "result-emotion"></div>
+    
+        </div>
+    
+        <!-- gaze tracking -->
+        <div>
+            <div class="text filler-words-text">Gaze Tracking</div>
+            <div class="subtext-5">시선 감지</div>
+            <img src="../static/img/magnifying.png" alt="Magnifying" class="icon filler-words-icon">
+            <div class="subtext-3" id = "result-gaze-tracking"></div>
+        </div>
+
+    </div>
+      
+
+      <script src="../static/js/upload.js"></script>
+  </body>
 </html>

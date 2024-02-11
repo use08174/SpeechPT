@@ -1,10 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>main page</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech PT Result Page</title>
+    <link rel="stylesheet" href="/static/css/pt_upload.css">
+    <link rel="stylesheet" href="/static/js/pt_result.js">
 </head>
 <body>
-    <h1>this is a main page.</h1>
-</body>
-</html>
+    <div class="navbar">
+            <h1><a href="main.html" style="color: inherit; text-decoration: none;">SPEECH PT</a></h1>
+            <div class="navbar-button" id="analysis"><a href="../templates/pt_upload.html" style="color: inherit; text-decoration: none;">발표 분석</a></div>
+            <div class="navbar-button" id="summary"><a href="../templates/sum_upload.html" style="color: inherit; text-decoration: none;">자료 요약</a></div>
+            <div class="navbar-button" id="member"><a href="../templates/member.html" style="color: inherit; text-decoration: none;">멤버 소개</a></div>
+            <div class="navbar-button" id="history">History</div>
+    </div>
+        
+    <div class="navbar-line"></div>
+    <div class="analysis-box">
+        <div class="circle-checkmark">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        </div>
+        <div class="analysis-complete-text">분석 완료</div>
+    </div>
+
+
+    <div class="file-name-display">
+        <img src="../static/img/docs.png" alt="docs" class="icon docs-icon">
+        <span class="file-name">**your_actual_file_name.txt**</span>
+
+    </div>
+
+    <div class="large-box">
+        <div class="line first-line-result"></div>
+        <div class="analysis-result">분석 결과</div>
+        <div class="line second-line-result"></div>
+            <div class="icon"></div>
+        <!-- 첫 번째 네모: Speed -->
+        <div class="box-speed-box">
+            <div class="text-speed-text">Speed</div>
+            <div class="subtext-1">발표 속도의 평균과 표준편차를 계산</div>
+            <img src="../static/img/speedometer.png" alt="Speedometer" class="icon speed-icon">
+            <div class="subtext-3" id = "result-speed"></div>
+        </div>
+    
+        <!-- 두 번째 네모: 라인 -->
+        <div class="line-box-2"></div>
+    
+        <!-- 세 번째 네모: Pause -->
+        <div class="box pause-box">
+            <div class="text-pause-text">Pause</div>
+            <div class="subtext-3">발표 도중 평균 일시정지 시간을 분석</div>
+            <img src="../static/img/pause.png" alt="Pause" class="icon pause-icon">
+            <div class="subtext-3" id = "result-pause"></div>
+        </div>
+    
+        <!-- 네 번째 네모: 라인 -->
+        <div class="line-box-4"></div>
+    
+        <!-- 다섯 번째 네모: Filler words -->
+        <div class="box-filler-words-box">
+            <div class="text filler-words-text">Filler words</div>
+            <div class="subtext-5">흔히 사용되는 보충어(예: ‘그', ‘음', ‘아' 등)을 감지</div>
+            <img src="../static/img/magnifying.png" alt="Magnifying" class="icon filler-words-icon">
+            <div class="subtext-3" id = "result-filler-words"></div>
+        </div>
+    
+        <!-- 여섯 번째 네모: 라인 -->
+        <div class="line-box-6"></div>
+
+        <!--감정분석-->
+        <div >
+            <div class="text filler-words-text">표정 분석</div>
+            <div class="subtext-5">적절한 표정인지 분석</div>
+            <div class="subtext-3" id = "result-emotion"></div>
+    
+        </div>
+    
+        <!-- gaze tracking -->
+        <div>
+            <div class="text filler-words-text">Gaze Tracking</div>
+            <div class="subtext-5">시선 감지</div>
+            <img src="../static/img/magnifying.png" alt="Magnifying" class="icon filler-words-icon">
+            <div class="subtext-3" id = "result-gaze-tracking"></div>
+        </div>
+
+    </div>
+    
+
+<script src="../static/js/pt_result.js"></script>
+
+</div>
+
