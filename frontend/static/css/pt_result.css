@@ -1,0 +1,426 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'made_soulmaze';
+    src: url(../font/made_soulmaze/MADE\ Soulmaze\ PERSONAL\ USE.otf) format("opentype");
+}
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;}
+
+    body, html {
+    width: 1920px;
+    height: 1705px;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 109px;
+    background-color: #fffefe;
+    display: flex;
+    align-items: center;
+    padding-left: 323px;
+}
+
+.navbar h1 {
+    width: 260px;
+    height: 53px;
+    top: 29px;
+    left: 323px;
+    font-family: 'made_soulmaze', sans-serif;
+    letter-spacing: 0em;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 53px;
+    color: #0034A6;
+}
+
+.navbar-button {
+    position: absolute;
+    width: 81px;
+    height: 22px;
+    top: 45px;
+    left: 1005px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #909090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#analysis { left: 1005px; }
+#summary { left: 1177px; }
+#member { left: 1349px; }
+#history { left: 1521px; width: 76px; }
+
+.navbar-line {
+    position: absolute;
+    top: 109px;
+    left: 0;
+    width: 1920px;
+    height: 2px;
+    background-color: #DFDFDF;
+    border: 2px solid #DFDFDF;
+}
+
+.top-section {
+    position: relative;
+    width: 1920px;
+    height: auto; /* 높이는 내용에 따라 자동으로 결정되도록 설정 */
+}
+
+.people-icon {
+    position: absolute;
+    top: 179px;
+    left: 334px;
+    width: 44px;
+    height: 48px;
+    /* 이미지를 배경으로 사용하지 않으므로 background 속성은 제거합니다. */
+}
+
+.analysis-text {
+    position: absolute;
+    top: 188px;
+    left: 393px;
+    width: 121px;
+    height: 33px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 33px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #0034A6;
+}
+.analysis-box {
+    width: 416px;
+    height: 244px; /* 높이를 필요에 따라 조정할 수 있습니다 */
+    position: absolute;
+    top: 285px;
+    left: 323px;
+    border-radius: 10px;
+    background:                 linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    border: 2px solid #DFDFDF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* 내부 요소들 사이의 공간을 균등하게 분배합니다 */
+    flex-direction: column;
+}
+
+.circle-checkmark {
+    width: 58px;
+    height: 58px;
+    border: 4px solid #BBBBBB;
+    border-radius: 50%;
+    display: flex;
+    top: 335px;
+    left: 931;
+}
+
+.checkmark {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke: #BBBBBB;
+    stroke-linecap: round;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 2;
+    stroke: #BBBBBB;
+    fill: none;
+    stroke-linecap: round;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.analysis-complete-text {
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #909090;
+    width: 60px;
+    height: 17px;
+    top: 419px;
+    left: 930px;
+
+}
+
+.file-name-display {
+    width: 416px;
+    height: 80px;
+    position: absolute;
+    top: 549px;
+    left: 323px;
+    border-radius: 10px;
+    background: #F6F6F6;
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    padding: 0 20px; /* 내부 여백 */
+}
+
+.file-name {
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 16px; /* 파일 이름의 폰트 크기 */
+    color: #333; /* 파일 이름의 폰트 색상 */
+    /* 필요한 경우 추가적인 스타일 속성 */
+}
+
+.large-box {
+    width: 830px;
+    height: 1329px;
+    position: absolute;
+    top: 285px;
+    left: 767px;
+    border-radius: 10px;
+        background:                 linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    border: 1.5px solid #DFDFDF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 264px; /* card-container의 top 값을 413px에서 285px로 변경했습니다. */
+}
+
+
+.card-container {
+    position: absolute;
+    top: 264px;
+    left: 0px;
+    width: 100;
+}
+
+.speed-card {
+    width: 737px;
+    height: 190px;
+    border-radius: 20px;
+    background: #113178;
+    position: relative;
+}
+
+.card-header {
+    width: 83px;
+    height: 28px;
+    position: absolute;
+    top: 35px; /* 상대 위치 조정 */
+    left: 40px; /* 상대 위치 조정 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #FFFFFF; /* 글자색 */
+
+    padding: 0 10px; /* 적당한 패딩을 추가 */
+}
+
+.card-subheader {
+    width: 196px;
+    height: 14px;
+    position: absolute;
+    top: 81px; /* 상대 위치 조정 */
+    left: 40px; /* 상대 위치 조정 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color:#B5B5B5;
+    /* 글자색 */
+
+    padding: 0 10px; /* 적당한 패딩을 추가 */
+}
+
+.icon-container {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 35px; /* 상대 위치 조정 */
+    left: 313px; /* 상대 위치 조정 */
+
+    border: 3.5px solid #FFFFFF;
+    /* 아이콘 배경의 원형을 만들기 위한 스타일 */
+    border-radius: 50%;
+}
+
+.icon {
+    width: 9.42px;
+    height: 9.42px;
+    position: absolute;
+    top: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
+    left: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
+    background: #FFFFFF;
+    border: 3.5px solid #FFFFFF;
+    /* 아이콘 형태 구현을 위한 추가 스타일링 필요 */
+    border-radius: 50%; /* 가정한 스타일 */
+}
+
+.pause-card {
+    width: 787px;
+    height: 190px;
+    position: absolute;
+    top: 798px;
+    left: 814px; /* 위치 조정 */
+    border-radius: 20px;
+    background: #113178;
+}
+
+.pause-header {
+    width: 79px;
+    height: 28px;
+    position: absolute;
+    top: 35px; /* 상대 위치 조정 */
+    left: 40px; /* 상대 위치 조정 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #FFFFFF; /* 글자색 */
+
+    padding: 0 10px; /* 적당한 패딩을 추가 */
+}
+
+.pause-subheader {
+    width: 199px;
+    height: 14px;
+    position: absolute;
+    top: 81px; /* 상대 위치 조정 */
+    left: 40px; /* 상대 위치 조정 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #B5B5B5; /* 글자색 */
+    padding: 0 10px; /* 적당한 패딩을 추가 */
+}
+
+.pause-icon-container {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 35px; /* 상대 위치 조정 */
+    left: 273px; /* 상대 위치 조정 */
+    background: #FFFFFF;
+    border: 3.5px solid #FFFFFF;
+    border-radius: 50%; /* 아이콘 배경의 원형을 만들기 위한 스타일 */
+}
+
+.pause-icon {
+    width: 9.42px;
+    height: 9.42px;
+    position: absolute;
+    top: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
+    left: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
+    border: 3.5px solid #FFFFFF;
+    border-radius: 50%; /* 가정한 스타일 */
+}
+
+.pause-icon-second {
+    width: 9.42px;
+    height: 9.42px;
+    position: absolute;
+    top: 11.98px; /* 부모 요소(.icon-container) 기준 위치 조정 */
+    left: 19.47px; /* 부모 요소(.icon-container) 기준 위치 조정 */
+    border: 3.5px solid #FFFFFF;
+    border-radius: 50%; /* 가정한 스타일 */
+}
+
+
+
+.filler-words-card {
+    width: 787px;
+    height: 190px;
+    position: absolute;
+    top: 1183px;
+    left: 814px; /* 위치 조정 */
+    border-radius: 20px;
+    background: #113178;
+}
+
+.filler-words-header {
+    width: 149px;
+    height: 28px;
+    position: absolute;
+    top: 35px; /* 상대 위치 조정 */
+    left: 40px; /* 상대 위치 조정 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #FFFFFF; /* 글자색 설정 */
+    background: #113178; /* 배경색과 동일하게 설정 */
+    padding: 0 10px; /* 적당한 패딩을 추가 */
+}
+
+.filler-words-subheader {
+    width: 267px;
+    height: 14px;
+    position: absolute;
+    top: 81px; /* 상대 위치 조정 */
+    left: 40px; /* 상대 위치 조정 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #B5B5B5; /* 글자색 설정 */
+    background: #113178; /* 배경색과 동일하게 설정 */
+    padding: 0 10px; /* 적당한 패딩을 추가 */
+}
+
+.fourth-card {
+    width: 737px;
+    height: 261px;
+    position: absolute;
+    top: 1303px;
+    left: 814px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, #DFDFDF, #DFDFDF),
+                linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    border: 1.5px solid #DFDFDF;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.08); /* 투명도를 나타내는 14%를 0.08로 변환 */
+}
