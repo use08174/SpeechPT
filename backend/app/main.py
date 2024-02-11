@@ -1,26 +1,27 @@
-from fastapi import FastAPI, Request, File, UploadFile, HTTPException
-import os
-from fastapi.responses import HTMLResponse,JSONResponse,FileResponse, RedirectResponse, StreamingResponse
+from fastapi import FastAPI, Request, UploadFile, HTTPException, File
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-template_directory = os.path.join(BASE_DIR, "tests")
-templates = Jinja2Templates(directory="../../frontend/templates")
-
 from fastapi.middleware.cors import CORSMiddleware
+import os
 import uuid
 
+# Assuming `analyze_file` is correctly implemented in 'func.py'
 from func import analyze_file
 
-# 상대 경로를 사용하여 templates 폴더 위치 설정
-#templates=Jinja2Templates(directory="./../tests")
+app = FastAPI(title='Speech Practice')
 
-# 임시 결과 저장소
-results={}
+# Set base directory to the project root
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-app = FastAPI(project_name='speech_practice')
+# Configure templates directory
+templates_directory = os.path.join(BASE_DIR, "frontend", "templates")
+templates = Jinja2Templates(directory=templates_directory)
 
-# Add middleware to allow CORS
+# Configure static files directory
+app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "frontend", "static")), name="static")
+
+# Configure CORS middleware for cross-origin requests
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allows all origins
@@ -29,39 +30,48 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-@app.get("/")
-async def read_root(request:Request):
-    # index.html 렌더링
-    return templates.TemplateResponse("index.html",{"request":request})
+# Temporary results storage
+results = {}
+
+@app.get("/", response_class=HTMLResponse)
+async def read_root(request: Request):
+    """Serve the main page."""
+    return templates.TemplateResponse("main.html", {"request": request})
+
+@app.get("/pt_upload/")
+async def show_upload_page(request: Request):
+    """Display upload page."""
+    return templates.TemplateResponse("pt_upload.html", {"request": request})
+
+@app.get("/sum_upload/")
+async def show_upload_page(request: Request):
+    """Display upload page."""
+    return templates.TemplateResponse("sum_upload.html", {"request": request})
+
+@app.get("/member/")
+async def show_upload_page(request: Request):
+    """Display upload page."""
+    return templates.TemplateResponse("member.html", {"request": request})
 
 @app.post("/detect/")
-async def analyze_endpoint(request:Request, file:UploadFile= File(...)):
-    result=await analyze_file(file)
-    
-    session_id = str(uuid.uuid4())
-    results[session_id] =result
-    
-    # 결과 페이지로 리디렉션
-    return RedirectResponse(url=f"/result/{session_id}", status_code=303)
+async def analyze_endpoint(file: UploadFile = File(...)):
+    """Analyze uploaded file and return results."""
+    try:
+        # Ensure file is not empty
+        if file.file:
+            result = await analyze_file(file)
+            session_id = str(uuid.uuid4())
+            results[session_id] = result  # Store result with session_id
+        else:
+            raise HTTPException(status_code=400, detail="No file uploaded or file is empty.")
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
 
-@app.get("/result/{session_id}", response_class=HTMLResponse)
-async def show_result(request: Request, session_id: str):
-    result = results.get(session_id, None)
-    if result is None:
-        raise HTTPException(status_code=404, detail="결과를 찾을 수 없습니다.")
+    # Ensure result is serializable, consider converting result if it's a complex object
     
-    return templates.TemplateResponse("result.html", {"request": request, "result_data": result})
+    return {"result": result, "session_id": session_id}
 
-'''@app.get("/")
-async def read_root():
-    return FileResponse('backend/tests/index.html')
 
-@app.post("/detect/")
-async def analyze_endpoint(file: UploadFile):
-    return await analyze_file(file)'''
- 
-
-    
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -6,7 +6,7 @@
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background-image: url(/frontend/static/img/web-backgraound-2.png);
+	background-image: url(../img/web-background-2.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -151,7 +151,7 @@ a {
 	position: absolute;
 	left: 197px;
 	top: 291px;
-	background-image: url(/frontend/static/img/3d-realistic-people-icon-vector-illustration-1.png);
+	background-image: url(../img/3d-realistic-people-icon-vector-illustration-1.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -196,7 +196,7 @@ a {
 	position: absolute;
 	left: 185px;
 	top: 296px;
-	background-image: url(/frontend/static/img/screenshot-2024-01-01-at-4.46-1.png);
+	background-image: url(../img/screenshot-2024-01-01-at-4.46-1.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }

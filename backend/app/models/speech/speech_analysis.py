@@ -11,6 +11,7 @@ def perform_stt(audio_file_path):
         audio_data = recognizer.record(source)  # Read the audio data
     
     # Try to recognize the speech using Google's STT
+    print("start stt")
     try:
         text = recognizer.recognize_google(audio_data, language='ko-KR')  # Korean language
         return "Recognized text:", text

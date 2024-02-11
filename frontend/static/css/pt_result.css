@@ -20,6 +20,7 @@
     height: 1705px;
 }
 
+
 .navbar {
     position: absolute;
     top: 0;
@@ -45,6 +46,22 @@
     line-height: 53px;
     color: #0034A6;
 }
+
+.navbar h1 a {
+    width: 260px;
+    height: 53px;
+    top: 29px;
+    left: 323px;
+    font-family: 'made_soulmaze', sans-serif;
+    letter-spacing: 0em;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 53px;
+    color: #0034A6;
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
 
 .navbar-button {
     position: absolute;
@@ -191,15 +208,21 @@
     background: #F6F6F6;
     display: flex;
     align-items: center; /* 수직 중앙 정렬 */
-    justify-content: center; /* 수평 중앙 정렬 */
-    padding: 0 20px; /* 내부 여백 */
+    justify-content: start; /* 시작 지점부터 아이템 배치 */
+    padding-left: 20px; /* 왼쪽 패딩 */
+    padding-right: 20px; /* 오른쪽 패딩 */
+}
+
+.docs-icon {
+    width: 24px; /* 아이콘의 너비 */
+    height: 24px; /* 아이콘의 높이 */
+    margin-right: 10px; /* 아이콘과 텍스트 사이의 오른쪽 마진 */
 }
 
 .file-name {
     font-family: 'NanumSquareNeo-Variable', sans-serif;
     font-size: 16px; /* 파일 이름의 폰트 크기 */
     color: #333; /* 파일 이름의 폰트 색상 */
-    /* 필요한 경우 추가적인 스타일 속성 */
 }
 
 .large-box {
@@ -209,7 +232,7 @@
     top: 285px;
     left: 767px;
     border-radius: 10px;
-        background:                 linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    background: linear-gradient(0deg, #FCFCFC, #FCFCFC);
     border: 1.5px solid #DFDFDF;
     display: flex;
     flex-direction: column;
@@ -217,210 +240,262 @@
     padding-top: 264px; /* card-container의 top 값을 413px에서 285px로 변경했습니다. */
 }
 
-
-.card-container {
+.line {
     position: absolute;
-    top: 264px;
-    left: 0px;
-    width: 100;
+    height: 2px;
+    border: 2px solid #BBBBBB;
 }
 
-.speed-card {
+.first-line-result {
+    width: 275px;
+    top: 80px;
+    left: 47px; /* Adjusted for positioning within .large-box */
+}
+
+.second-line-result {
+    width: 275px;
+    top: 80px;
+    left: 509px; /* Adjusted for positioning within .large-box */
+}
+
+.analysis-result {
+    position: absolute;
+    width: 81px;
+    height: 22px;
+    top: 80px;
+    left: 375px; /* Adjusted for centering within .large-box */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #000000; /* 'font-color' is not a valid property, so it's corrected to 'color' */
+}
+
+.box-speed-box{
+    position: absolute;
     width: 737px;
     height: 190px;
+    top: 150px;
+    left: 50px;
     border-radius: 20px;
     background: #113178;
-    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.card-header {
+.text-speed-text {
+    position: absolute;
     width: 83px;
     height: 28px;
-    position: absolute;
-    top: 35px; /* 상대 위치 조정 */
-    left: 40px; /* 상대 위치 조정 */
+    top:30px;
+    left: 55px;
     font-family: 'NanumSquareNeo-Variable', sans-serif;
     font-size: 25px;
     font-weight: 800;
     line-height: 28px;
     letter-spacing: -0.01em;
     text-align: left;
-    color: #FFFFFF; /* 글자색 */
-
-    padding: 0 10px; /* 적당한 패딩을 추가 */
+    color: #FFFFFF;
 }
 
-.card-subheader {
+.subtext-1 {
+    position: absolute;
     width: 196px;
     height: 14px;
-    position: absolute;
-    top: 81px; /* 상대 위치 조정 */
-    left: 40px; /* 상대 위치 조정 */
-    font-family: 'NanumSquareNeo-Variable', sans-serif;
-    font-size: 10px;
+    top: 65px;
+    left: 55px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif; /* Assuming 'NanumSquare Neo' is intended to be 'NanumSquareNeo-Variable' */
+    font-size: 13px;
     font-weight: 700;
     line-height: 14px;
     letter-spacing: -0.01em;
     text-align: left;
-    color:#B5B5B5;
-    /* 글자색 */
-
-    padding: 0 10px; /* 적당한 패딩을 추가 */
+    color: #B5B5B5;
 }
 
-.icon-container {
-    width: 32px;
-    height: 32px;
+.speed-icon {
     position: absolute;
-    top: 35px; /* 상대 위치 조정 */
-    left: 313px; /* 상대 위치 조정 */
-
-    border: 3.5px solid #FFFFFF;
-    /* 아이콘 배경의 원형을 만들기 위한 스타일 */
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    top: 30px;
+    left: 650px;
+    /* Ensure the path to the image is correct */
+    content: url('../img/speedometer.png');
 }
 
-.icon {
-    width: 9.42px;
-    height: 9.42px;
+.line-box-2 {
     position: absolute;
-    top: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
-    left: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
-    background: #FFFFFF;
-    border: 3.5px solid #FFFFFF;
-    /* 아이콘 형태 구현을 위한 추가 스타일링 필요 */
-    border-radius: 50%; /* 가정한 스타일 */
+    width: 737px;
+    height: 235px;
+    top: 270px;
+    left: 50px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    border: 1.5px solid #DFDFDF;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.pause-card {
-    width: 787px;
+/* 두 번째 네모 안의 선에 대한 스타일 */
+.line-box-2::before {
+    content: '';
+    position: absolute;
+    width: 681px;
+    height: 1.5px; /* 선의 높이 */
+    background: #DFDFDF;
+    top: 93px; /* 두 번째 네모 상단으로부터의 상대 위치 조정 */
+    left: 0;
+    transform: translateX(28px); /* 선을 중앙으로 정렬하기 위한 조정 */
+}
+
+/* 세 번째 네모: Pause 박스 스타일 */
+.pause-box {
+    position: absolute;
+    width: 737px;
     height: 190px;
-    position: absolute;
-    top: 798px;
-    left: 814px; /* 위치 조정 */
+    top: 526px;
+    left: 50px;
     border-radius: 20px;
     background: #113178;
 }
 
-.pause-header {
+/* 세 번째 네모 내부의 Pause 텍스트 스타일 */
+.text-pause-text {
     width: 79px;
     height: 28px;
     position: absolute;
-    top: 35px; /* 상대 위치 조정 */
-    left: 40px; /* 상대 위치 조정 */
+    top: 35px; /* 네모 상단으로부터의 상대적 위치 */
+    left: 40px; /* 네모 왼쪽으로부터의 상대적 위치 */
     font-family: 'NanumSquareNeo-Variable', sans-serif;
     font-size: 25px;
     font-weight: 800;
     line-height: 28px;
     letter-spacing: -0.01em;
     text-align: left;
-    color: #FFFFFF; /* 글자색 */
-
-    padding: 0 10px; /* 적당한 패딩을 추가 */
+    color: #FFFFFF; /* 배경색이 아닌 텍스트 색상을 지정 */
 }
 
-.pause-subheader {
+/* 발표 도중 평균 일시정지 시간을 분석 텍스트 스타일 */
+.subtext-3 {
     width: 199px;
     height: 14px;
     position: absolute;
-    top: 81px; /* 상대 위치 조정 */
-    left: 40px; /* 상대 위치 조정 */
+    top: 71px; /* 첫 번째 텍스트로부터의 상대적 위치 조정 */
+    left: 40px; /* 네모 왼쪽으로부터의 상대적 위치 */
     font-family: 'NanumSquareNeo-Variable', sans-serif;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
     line-height: 14px;
     letter-spacing: -0.01em;
     text-align: left;
-    color: #B5B5B5; /* 글자색 */
-    padding: 0 10px; /* 적당한 패딩을 추가 */
+    color: #B5B5B5;
 }
 
-.pause-icon-container {
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    top: 35px; /* 상대 위치 조정 */
-    left: 273px; /* 상대 위치 조정 */
-    background: #FFFFFF;
-    border: 3.5px solid #FFFFFF;
-    border-radius: 50%; /* 아이콘 배경의 원형을 만들기 위한 스타일 */
-}
-
+/* Pause 아이콘 스타일 */
 .pause-icon {
-    width: 9.42px;
-    height: 9.42px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
-    left: 11.29px; /* 부모 요소(.icon-container) 기준 위치 조정 */
-    border: 3.5px solid #FFFFFF;
-    border-radius: 50%; /* 가정한 스타일 */
-}
-
-.pause-icon-second {
-    width: 9.42px;
-    height: 9.42px;
-    position: absolute;
-    top: 11.98px; /* 부모 요소(.icon-container) 기준 위치 조정 */
-    left: 19.47px; /* 부모 요소(.icon-container) 기준 위치 조정 */
-    border: 3.5px solid #FFFFFF;
-    border-radius: 50%; /* 가정한 스타일 */
+    top: 35px; /* 첫 번째 텍스트로부터의 상대적 위치 조정 */
+    left: 670px; /* 네모 오른쪽 내부 끝으로부터의 상대적 위치 조정, 아이콘을 네모 오른쪽에 배치 */
 }
 
 
+/* 네 번째 네모: 라인 박스 스타일 */
+.line-box-4 {
+    position: absolute;
+    width: 737px;
+    height: 235px;
+    top: 646px;
+    left: 50px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    border: 1.5px solid #DFDFDF;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.08);
+}
 
-.filler-words-card {
-    width: 787px;
+/* 네 번째 네모 내의 선 스타일 */
+.line-box-4::before {
+    content: '';
+    position: absolute;
+    width: 681px;
+    height: 1.5px;
+    background: #DFDFDF;
+    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
+    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
+}
+
+.box-filler-words-box {
+    width: 737px;
     height: 190px;
     position: absolute;
-    top: 1183px;
-    left: 814px; /* 위치 조정 */
+    top: 911px;
+    left: 50px;
     border-radius: 20px;
     background: #113178;
 }
 
-.filler-words-header {
+.text.filler-words-text {
     width: 149px;
     height: 28px;
     position: absolute;
-    top: 35px; /* 상대 위치 조정 */
-    left: 40px; /* 상대 위치 조정 */
+    top: 35px; /* 상자 내부 상단으로부터의 거리 */
+    left: 40px; /* 상자 내부 왼쪽으로부터의 거리 */
     font-family: 'NanumSquareNeo-Variable', sans-serif;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 800;
     line-height: 28px;
     letter-spacing: -0.01em;
     text-align: left;
-    color: #FFFFFF; /* 글자색 설정 */
-    background: #113178; /* 배경색과 동일하게 설정 */
-    padding: 0 10px; /* 적당한 패딩을 추가 */
+    color: #FFFFFF;
 }
 
-.filler-words-subheader {
+.subtext-5 {
     width: 267px;
     height: 14px;
     position: absolute;
-    top: 81px; /* 상대 위치 조정 */
-    left: 40px; /* 상대 위치 조정 */
+    top: 71px; /* 첫 번째 텍스트 아래에 위치 */
+    left: 40px; /* 동일한 좌측 정렬 */
     font-family: 'NanumSquareNeo-Variable', sans-serif;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
     line-height: 14px;
     letter-spacing: -0.01em;
     text-align: left;
-    color: #B5B5B5; /* 글자색 설정 */
-    background: #113178; /* 배경색과 동일하게 설정 */
-    padding: 0 10px; /* 적당한 패딩을 추가 */
+    color: #B5B5B5;
 }
 
-.fourth-card {
+.icon.filler-words-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 35px; /* 상자 내부 상단으로부터의 거리와 일치 */
+    left: 665px; /* 상자 오른쪽 내부에 위치하도록 조정 */
+}
+
+.line-box-6 {
     width: 737px;
     height: 261px;
     position: absolute;
-    top: 1303px;
-    left: 814px;
+    top: 1031px;
+    left: 50px;
     border-radius: 20px;
-    background: linear-gradient(0deg, #DFDFDF, #DFDFDF),
-                linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    background: linear-gradient(0deg, #FCFCFC, #FCFCFC);
     border: 1.5px solid #DFDFDF;
-    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.08); /* 투명도를 나타내는 14%를 0.08로 변환 */
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.14); /* #00000014을 rgba로 변환 */
+}
+
+.line-box-6::before {
+    content: '';
+    position: absolute;
+    width: 681px;
+    height: 1.5px;
+    background: #DFDFDF;
+    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
+    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
 }

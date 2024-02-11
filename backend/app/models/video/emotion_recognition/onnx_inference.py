@@ -13,7 +13,7 @@ def emotions_detector(video):
     emotion_list = []
     visualization_number = 1
     while True:
-        print(f"Working...Processing the frame {visualization_number}")
+        #print(f"Working...Processing the frame {visualization_number}")
         ret, frame = video.read()
         if not ret:
             break
