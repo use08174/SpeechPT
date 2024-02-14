@@ -7,7 +7,25 @@
 * [Setup](#setup)
 * [Members](#Members)
 
-## Setup
+
+## Installation
+1. Clone the repository :
+```
+git clone https://github.com/use08174/SpeechPT.git
+```
+
+2. Install dependencies:
+```
+pip install -r requirements.txt
+```
+
+3. Start the development server:
+```
+cd SpeechPT/backend/app
+uvicorn main:app --reload
+```
+
+
 
 
 ## Members
