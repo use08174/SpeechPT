@@ -1,63 +1,134 @@
 @font-face {
-    font-family: 'made_soul_maze'; /* Name you'll use to refer to the font */
-    src: url('SpeechPT\made_soulmaze\MADE Soulmaze PERSONAL USE.otf') format('otf');/* Path to the font file */
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'nanum_square_extra_bold'; /* Name you'll use to refer to the font */
-    src: url('css_font_file/NanumSquareNeo/웹폰트/eot/NanumSquareNeoTTF-dEb.eot') format('eot'),
-        url('css_font_file/NanumSquareNeo/웹폰트/woff/NanumSquareNeoTTF-dEb.woff') format('woff'),
-        url('css_font_file/NanumSquareNeo/웹폰트/eot/NanumSquareNeoTTF-dEb.woff2') format('woff2'),
-        url('css_font_file/NanumSquareNeo/OTF/NanumSquareNeoOTF-Eb.otf') format('otf'),
-        url('css_font_file/NanumSquareNeo/TTF/NanumSquareNeo-dEb.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'made_soulmaze';
+    src: url(../font/made_soulmaze/MADE\ Soulmaze\ PERSONAL\ USE.otf) format("opentype");
 }
-body {
-    background-image: url('./img_folder/web-background-2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;}
+
+    body, html {
+    width: 1920px;
+    height: 1705px;
 }
 
-.menu-bar {
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid rgb(109, 109, 109);
-}
-
-.menu-bar a {
-    display: block;
-    color: #909090;
-    font-family : 'nanum_square_extra_bold';
-    font-size : 20px;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
 
 /* Style for the logo */
-.menu-bar .logo {
-    font-family : 'made_soul_maze';
-    color: #0034A6;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
 
-/* Container for menu items */
-.menu-items {
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 109px;
+    background-color: #fffefe;
     display: flex;
+    align-items: center;
+    padding-left: 323px;
 }
 
-/* Change the color of links on hover */
-.menu-bar a:hover {
+.navbar h1 {
+    width: 260px;
+    height: 53px;
+    top: 29px;
+    left: 323px;
+    font-family: 'made_soulmaze', sans-serif;
+    letter-spacing: 0em;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 53px;
+    color: #0034A6;
+}
+
+.navbar h1 a {
+    width: 260px;
+    height: 53px;
+    top: 29px;
+    left: 323px;
+    font-family: 'made_soulmaze', sans-serif;
+    letter-spacing: 0em;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 53px;
+    color: #0034A6;
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+
+.navbar-button {
+    position: absolute;
+    width: 81px;
+    height: 22px;
+    top: 45px;
+    left: 1005px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #909090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#analysis { left: 1005px; }
+#summary { left: 1177px; }
+#member { left: 1349px; }
+#history { left: 1521px; width: 76px; }
+
+.navbar-line {
+    position: absolute;
+    top: 109px;
+    left: 0;
+    width: 1920px;
+    height: 2px;
+    background-color: #DFDFDF;
+    border: 2px solid #DFDFDF;
+}
+.navbar a:hover {
     background-color: #ddd;
     color: black;
+}
+.top-section {
+    position: relative;
+    width: 1920px;
+    height: auto; /* 높이는 내용에 따라 자동으로 결정되도록 설정 */
+}
+
+.people-icon {
+    position: absolute;
+    top: 179px;
+    left: 334px;
+    width: 44px;
+    height: 48px;
+    /* 이미지를 배경으로 사용하지 않으므로 background 속성은 제거합니다. */
+}
+
+.analysis-text {
+    position: absolute;
+    top: 188px;
+    left: 393px;
+    width: 121px;
+    height: 33px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 33px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #0034A6;
 }
 #audioFile {
     display: none; /* Hide the file input */
@@ -65,18 +136,19 @@ body {
 #result_font1 {
     color: #909090;
     text-align: center;
-    font-family: 'NanumSquare Neo';
+    font-family: 'NanumSquareNeo', sans-serif;
     font-size: 15px;
     font-style: normal;
-    font-weight: 700px;
-    line-height: normal;
-    letter-spacing: -0.15px;
+    font-weight: 700;
+    line-height: 17px;
+    display: felx;
+    letter-spacing: -0.01em;
 }
 
 #result_font2 {
     color: #BBB;
     text-align: center;
-    font-family: "NanumSquare Neo";
+    font-family: "NanumSquareNeo", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -88,12 +160,11 @@ body {
 }
 #result_font3{
     color: #909090;
-    font-family: 'NanumSquare Neo';
+    font-family: 'NanumSquareNeo', sans-serif;
     font-size: 15px;
     font-weight: 700;
-    font-style: normal;
+    /*font-style: normal;*/
     line-height: 17px;
-    letter-spacing: -0.01em;
     text-align: center;
     position : absolute;
     top : 160px;
@@ -390,6 +461,7 @@ body {
     letter-spacing: -0.01em;
     text-align: center;
     color: #000000; /* 'font-color' is not a valid property, so it's corrected to 'color' */
+    white-space: nowrap;
 }
 
 .box-speed-box{
@@ -433,6 +505,7 @@ body {
     letter-spacing: -0.01em;
     text-align: left;
     color: #B5B5B5;
+    white-space: nowrap;
 }
 
 .speed-icon {
@@ -440,9 +513,10 @@ body {
     width: 40px;
     height: 40px;
     top: 30px;
-    left: 650px;
+    left: 670px;
     /* Ensure the path to the image is correct */
     content: url('../img/speedometer.png');
+    filter: invert(100%);
 }
 
 .line-box-2 {
@@ -513,6 +587,7 @@ body {
     letter-spacing: -0.01em;
     text-align: left;
     color: #B5B5B5;
+    white-space: nowrap;
 }
 
 /* Pause 아이콘 스타일 */
@@ -522,6 +597,7 @@ body {
     position: absolute;
     top: 35px; /* 첫 번째 텍스트로부터의 상대적 위치 조정 */
     left: 670px; /* 네모 오른쪽 내부 끝으로부터의 상대적 위치 조정, 아이콘을 네모 오른쪽에 배치 */
+    filter: invert(100%);
 }
 
 
@@ -587,6 +663,7 @@ body {
     letter-spacing: -0.01em;
     text-align: left;
     color: #B5B5B5;
+    white-space: nowrap;
 }
 
 .icon.filler-words-icon {
@@ -595,6 +672,7 @@ body {
     position: absolute;
     top: 35px; /* 상자 내부 상단으로부터의 거리와 일치 */
     left: 665px; /* 상자 오른쪽 내부에 위치하도록 조정 */
+    filter: invert(100%);
 }
 
 .line-box-6 {
