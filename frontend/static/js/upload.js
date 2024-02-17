@@ -195,10 +195,10 @@ async function removeFile() {
   
   uploadButton.removeChild(newBox);
   uploadButton.removeChild(newBox2);
-  }
+}
 
 
-  function displayResult(result, sessionId) {
+function displayResult(result, sessionId) {
     let resultsDiv = document.getElementById('analysisResults');
     if (!resultsDiv) {
         // Create the results div if it does not exist
@@ -206,38 +206,6 @@ async function removeFile() {
         resultsDiv.id = 'analysisResults';
         document.body.appendChild(resultsDiv); // Append somewhere suitable in your actual layout
     }
-    /*
-    // Clear previous results
-    resultsDiv.innerHTML = '';
-
-    // Construct content based on the result structure
-    const emotionDetails = result.emotion.emotion.join(', ');
-    const speechSpeed = result.speech.speed;
-    const numPauses = result.speech.num_pauses;
-    const fillerWordsDetails = Object.entries(result.speech.filler_words).map(([word, count]) => `${word}: ${count}`).join(', ');
-
-    // Displaying the results
-    const sessionIdText = document.createElement('p');
-    sessionIdText.textContent = `Session ID: ${sessionId}`;
-    resultsDiv.appendChild(sessionIdText);
-
-    const emotionText = document.createElement('p');
-    emotionText.textContent = `Emotion: ${emotionDetails}`;
-    resultsDiv.appendChild(emotionText);
-
-    if (Object.keys(result.gaze).length > 0) {
-        // If gaze data is available, process and display it
-        const gazeText = document.createElement('p');
-        gazeText.textContent = `Gaze: [Data]`; // Adjust according to how you want to display gaze data
-        resultsDiv.appendChild(gazeText);
-    }
-
-    const speechText = document.createElement('p');
-    speechText.textContent = `Speech Speed: ${speechSpeed}, Number of Pauses: ${numPauses}, Filler Words: ${fillerWordsDetails}`;
-    resultsDiv.appendChild(speechText);
-
-    */
-
 
     // Update speed result
     const speedResult = document.getElementById('result-speed');
@@ -264,9 +232,8 @@ async function removeFile() {
     if (speedResult && result.emotion && result.emotion.emtion) {
         speedResult.textContent = `결과: 표정 ${result.emotion.emotion}`;
     }
-
-    // Optionally, handle and display the result in a more detailed or formatted manner
 }
+
 
 function truncateText(text, maxLength) {
   var truncated = text;
@@ -275,3 +242,4 @@ function truncateText(text, maxLength) {
   }
   return truncated;
 }
+
