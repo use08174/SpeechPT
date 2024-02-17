@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Upload Presentation</title>
-      <link rel="stylesheet" href="/static/css/pt_upload.css">
-      <style>
-      </style>
+      <link rel="stylesheet" href="../static/css/pt_upload.css">
   </head>
   
   <body>
-
-      <div class="menu-bar">
-        <a href="/" class="logo">Speech PT</a>
-        <div class="menu-items">
-            <a href="/pt_upload/">발표 분석</a>
-            <a href="/sum_upload/">자료 요약</a>
-            <a href="/members/">멤버 소개</a>
-        </div>
-      </div>
+      <div class="navbar">
+        <h1><a href="main.html" style="color: inherit; text-decoration: none;">SPEECH PT</a></h1>
+        <div class="navbar-button" id="analysis"><a href="/pt_upload" style="color: inherit; text-decoration: none;">발표 분석</a></div>
+        <div class="navbar-button" id="summary"><a href="/sum_upload" style="color: inherit; text-decoration: none;">자료 요약</a></div>
+        <div class="navbar-button" id="member"><a href="/member" style="color: inherit; text-decoration: none;">멤버 소개</a></div>
+        <div class="navbar-button" id="history"><a href="/history" style="color: inherit; text-decoration: none;">History</a></div>
+    </div>
+    
+    <div class="navbar-line"></div>
+    <div class="top-section">
+      <img src="../static/img/3d-realistic-people-icon-vector-illustration-1.png" alt="people-Icon" class="people-icon">
+      <div class="analysis-text">발표 분석</div>
+    </div>
 
 
       <input type="file" id="audioFile" accept=".mp4" onchange="uploadFile()">
@@ -54,13 +58,16 @@
           <circle cx="31" cy="31" r="29" stroke="#BBBBBB" stroke-width="4"/>
         </svg>
       </div>  
-      <div class = 'bigbox'>
+
+      <div id = 'resultBox' style="display: none;"></div>
+
+      <!-- <div class = 'bigbox'>
         <svg class='svg2'xmlns="http://www.w3.org/2000/svg" width="275" height="2" viewBox="0 0 275 2" fill="none">
           <path d="M0 1L275 0.999976" stroke="#BBBBBB" stroke-width="2"/>
         </svg>
         <svg class = 'svg3' xmlns="http://www.w3.org/2000/svg" width="275" height="2" viewBox="0 0 275 2" fill="none">
           <path d="M0 1L275 1.00002" stroke="#BBBBBB" stroke-width="2"/>
-        </svg>
+        </svg> -->
 
       <!--분석결과 칸 -->
       <div class="large-box">
@@ -83,7 +90,7 @@
         <div class="box pause-box">
             <div class="text-pause-text">Pause</div>
             <div class="subtext-3">발표 도중 평균 일시정지 시간을 분석</div>
-            <img src="../static/img/pause.png" alt="Pause" class="icon pause-icon">
+            <img src="../static/img/pause.png" alt="Pause" class="pause-icon">
             <div class="subtext-3" id = "result-pause"></div>
         </div>
     
@@ -102,7 +109,7 @@
         <div class="line-box-6"></div>
 
         <!--감정분석-->
-        <div >
+        <div class = ''>
             <div class="text filler-words-text">표정 분석</div>
             <div class="subtext-5">적절한 표정인지 분석</div>
             <div class="subtext-3" id = "result-emotion"></div>
@@ -110,7 +117,7 @@
         </div>
     
         <!-- gaze tracking -->
-        <div>
+        <div class = ''>
             <div class="text filler-words-text">Gaze Tracking</div>
             <div class="subtext-5">시선 감지</div>
             <img src="../static/img/magnifying.png" alt="Magnifying" class="icon filler-words-icon">

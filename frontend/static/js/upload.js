@@ -45,16 +45,14 @@ async function uploadFile() {
         'id': 'mov_svg'}
       );
       
-      const paths = [
-        { "d" : "M19.9189 0L24.5667 4.64773L29.2144 9.29545H19.9189V0Z", 'fill' :"#92DBFF" },
+      const paths = [ 
+        {'d': "M19.9189 0L24.5667 4.64773L29.2144 9.29545H19.9189V0Z", 'fill':'#92DBFF' },
         {'d' : "M2 0C0.895431 0 0 0.895433 0 2V35.1818C0 36.2864 0.89543 37.1818 2 37.1818H27.2143C28.3189 37.1818 29.2143 36.2864 29.2143 35.1818V9.29545H19.9189V0H2Z"
         , 'fill': '#00A8F4', 'fill-rule': 'evenodd', 'clip-rule': 'evenodd' },
-        {'d' : "M21.6737 23.3926L23.3788 18.1978H24.6934L22.5183 24.7471H20.8372L18.6541 18.1978H19.9687L21.6737 23.3926Z",
-        'fill' : 'white'},
-        {'d':"M15.7252 24.8665C15.2099 24.8665 14.7345 24.7523 14.299 24.5239C13.8634 24.3008 13.5155 23.9768 13.2552 23.5518C13.0003 23.1216 12.8728 22.6143 12.8728 22.03V20.9146C12.8728 20.3356 13.0003 19.831 13.2552 19.4007C13.5155 18.9705 13.8634 18.6438 14.299 18.4207C14.7345 18.1923 15.2099 18.0781 15.7252 18.0781C16.2404 18.0781 16.7158 18.1923 17.1514 18.4207C17.5869 18.6438 17.9322 18.9705 18.1871 19.4007C18.4474 19.831 18.5776 20.3356 18.5776 20.9146V22.03C18.5776 22.6143 18.4474 23.1216 18.1871 23.5518C17.9322 23.9768 17.5869 24.3008 17.1514 24.5239C16.7158 24.7523 16.2404 24.8665 15.7252 24.8665ZM15.7252 23.7032C16.0173 23.7032 16.2856 23.6395 16.5299 23.512C16.7742 23.3792 16.9681 23.1827 17.1115 22.922",},
-        {'d' : "M6.18525 24.7471H4.95825V18.1978H6.62347L8.49584 23.1934L10.3682 18.1978H12.0334V24.7471H10.8064V20.2534L9.1173 24.7471H7.87437L6.18525 20.2534V24.7471Z",
-        'fill' : 'white'}
-        ];
+        { 'd': "M21.6737 23.3921L23.3788 18.1973H24.6934L22.5183 24.7466H20.8372L18.6541 18.1973H19.9687L21.6737 23.3921Z", 'fill' : 'white' },
+        { 'd' : "M15.7252 24.8665C15.2099 24.8665 14.7345 24.7523 14.299 24.5239C13.8634 24.3008 13.5155 23.9768 13.2552 23.5518C13.0003 23.1216 12.8728 22.6143 12.8728 22.03V20.9146C12.8728 20.3356 13.0003 19.831 13.2552 19.4007C13.5155 18.9705 13.8634 18.6438 14.299 18.4207C14.7345 18.1923 15.2099 18.0781 15.7252 18.0781C16.2404 18.0781 16.7158 18.1923 17.1514 18.4207C17.5869 18.6438 17.9322 18.9705 18.1871 19.4007C18.4474 19.831 18.5776 20.3356 18.5776 20.9146V22.03C18.5776 22.6143 18.4474 23.1216 18.1871 23.5518C17.9322 23.9768 17.5869 24.3008 17.1514 24.5239C16.7158 24.7523 16.2404 24.8665 15.7252 24.8665ZM15.7252 23.7032C16.0173 23.7032 16.2856 23.6395 16.5299 23.512C16.7742 23.3792 16.9681 23.1827 17.1115 22.9224C17.2549 22.6621 17.3267 22.3487 17.3267 21.9822V20.9624C17.3267 20.5959 17.2523 20.2851 17.1036 20.0302C16.9601 19.7699 16.7663 19.5734 16.5219 19.4406C16.2829 19.3078 16.0173 19.2414 15.7252 19.2414C15.433 19.2414 15.1648 19.3078 14.9205 19.4406C14.6814 19.5734 14.4876 19.7699 14.3388 20.0302C14.1954 20.2851 14.1237 20.5959 14.1237 20.9624V21.9822C14.1237 22.3487 14.1954 22.6621 14.3388 22.9224C14.4876 23.1827 14.6814 23.3792 14.9205 23.512C15.1648 23.6395 15.433 23.7032 15.7252 23.7032Z", 'fill' : 'white'},
+        { 'd' : "M6.18525 24.7466H4.95825V18.1973H6.62347L8.49584 23.1929L10.3682 18.1973H12.0334V24.7466H10.8064V20.2529L9.1173 24.7466H7.87437L6.18525 20.2529V24.7466Z", 'fill' : 'white' }
+        ]
       paths.forEach(path => {
         svgElement.appendChild(createSvgElement('path',path))
       });
@@ -73,7 +71,8 @@ async function uploadFile() {
       
       const fileNameElement = document.createElement('div');
       fileNameElement.id = 'fileNameElementId';
-      fileNameElement.innerText = file.name;
+      var file_name = truncateText(file.name,18);
+      fileNameElement.innerText = file_name;
 
       const fileNameElement2 = document.createElement('div');
       fileNameElement2.id = 'fileNameElementId2';
@@ -95,9 +94,39 @@ async function uploadFile() {
       const formData = new FormData();
       formData.append('file', file);
 
+      function result() {
+        document.getElementById('spinner').style.display = 'none';
+        document.getElementById('result_font3').style.display = 'none'
+        document.querySelector('.svg4').style.display = 'block';
+        document.getElementById('resultBox').style.display = 'block';
+        const analBox = document.querySelector('.custom_upload_btn');
+        const resulttext = document.createElement('div');
+        resulttext.id = 'result_font3';
+        resulttext.innerText = '분석 완료';
+        analBox.appendChild(resulttext);
+        analBox.style.border='2px solid #DFDFDF';
+        analBox.style.background = '#FCFCFC';
+
+        const fileNameElement = document.createElement('div');
+        fileNameElement.id = 'fileNameElementId';
+        var file_name = truncateText(file.name,18)
+        fileNameElement.innerText = file_name;
+        
+        const fileNameElement3 = document.createElement('div');
+        fileNameElement3.id = 'fileNameElementId3';
+        
+        const fileSizeInMB = file.size/1024/1024;
+        fileNameElement3.innerText = fileSizeInMB.toFixed(2)+'MB';
+        resultBox.appendChild(fileNameElement);
+        resultBox.appendChild(fileNameElement3);
+         
+        svgElement.id = 'result_svg';
+        resultBox.appendChild(svgElement);
+      } 
       async function anal() {
         document.getElementById('spinner').style.display = 'block';
         const analBox = document.querySelector('.custom_upload_btn');
+        analBox.style.cursor = 'default';
         const analtext = document.createElement('div');
         analtext.id = 'result_font3';
         analtext.innerText = '분석 중...';
@@ -127,6 +156,7 @@ async function uploadFile() {
           } 
       
       }
+      
 
       
     } 
@@ -139,52 +169,6 @@ for (let key in attributes) {
 return element;
 }
 
-function result() {
-  document.getElementById('spinner').style.display = 'none';
-  document.getElementById('result_font3').style.display = 'none'
-  document.querySelector('.svg4').style.display = 'block';
-  const fileInput = document.getElementById('audioFile');
-  const file = fileInput.files[0];
-  const result_box = document.querySelector('.custom_upload_btn');
-  const resulttext = document.createElement('div');
-  resulttext.id = 'result_font3';
-  resulttext.innerText = '분석 완료';
-  result_box.appendChild(resulttext);
-  result_box.style.border='2px solid #DFDFDF';
-  result_box.style.background = '#FCFCFC';
-
-  const resultBox = document.createElement('div');
-  resultBox.id = 'resultBox';
-
-  const fileNameElement = document.createElement('div');
-  fileNameElement.id = 'fileNameElementId';
-  fileNameElement.innerText = file.name;
-
-  const fileNameElement3 = document.createElement('div');
-  fileNameElement3.id = 'fileNameElementId3';
-
-  const fileSizeInMB = file.size/1024/1024;
-  fileNameElement3.innerText = fileSizeInMB.toFixed(2)+'MB';
-  resultBox.appendChild(fileNameElement);
-  resultBox.appendChild(fileNameElement3);
-
-  const paths = [ {'d' : "M2 0C0.895431 0 0 0.895433 0 2V35.1818C0 36.2864 0.89543 37.1818 2 37.1818H27.2143C28.3189 37.1818 29.2143 36.2864 29.2143 35.1818V9.29545H19.9189V0H2Z"
-  , 'fill': '#00A8F4', 'fill-rule': 'evenodd', 'clip-rule': 'evenodd' }]
-
-  const svgElement = createSvgElement('svg', {
-    'width': '29px',
-    'height': '37px',
-    'flex-shrink': '0',
-    'viewBox': '0 0 30 38',
-    'fill': 'none',
-    'id': 'result_svg'}
-  );
-
-  paths.forEach(path => {
-    svgElement.appendChild(createSvgElement('path',path))
-  });
-  svgElement.id = 'result_svg';
-}     
 
 async function removeFile() {
   const fileInput = document.getElementById('audioFile');
@@ -197,6 +181,8 @@ async function removeFile() {
   uploadButton.style.width = '';
   uploadButton.style.height = '';
   uploadButton.onclick = oldOnclick;
+  uploadButton.style.cursor = 'pointer';
+
   
   // SVG 아이콘과 텍스트를 다시 보이게 합니다.
   document.querySelector('.svg1').style.display = '';
@@ -248,5 +234,12 @@ function displayResult(result, sessionId) {
     }
 }
 
-    // Optionally, handle and display the result in a more detailed or formatted manner
+
+function truncateText(text, maxLength) {
+  var truncated = text;
+  if (truncated.length > maxLength) {
+      truncated = truncated.substr(0,maxLength-5) + ' · · · ' + truncated.substr(-5);
+  }
+  return truncated;
+}
 
