@@ -46,7 +46,7 @@ async def show_upload_page(request: Request):
 @app.get("/sum_upload/")
 async def show_upload_page(request: Request):
     """Display upload page."""
-    return templates.TemplateResponse("sum_upload.html", {"request": request})
+    return templates.TemplateResponse("sum_result.html", {"request": request})
 
 @app.get("/member/")
 async def show_upload_page(request: Request):
