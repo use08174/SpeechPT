@@ -1,44 +1,76 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summary Result Page</title>
-<link rel="stylesheet" href="/static/css/sum_result.css">
-<link rel="stylesheet" href="/static/js/pt_result.js">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Result Page</title>
+    <link rel="stylesheet" href="../static/css/sum_result.css">
+    <link rel="stylesheet" href="../static/js/pt_result.js">
 </head>
 <body>
-
     <div class="navbar">
         <h1><a href="main.html" style="color: inherit; text-decoration: none;">SPEECH PT</a></h1>
         <div class="navbar-button" id="analysis"><a href="/pt_upload" style="color: inherit; text-decoration: none;">발표 분석</a></div>
         <div class="navbar-button" id="summary"><a href="/sum_upload" style="color: inherit; text-decoration: none;">자료 요약</a></div>
         <div class="navbar-button" id="member"><a href="/member" style="color: inherit; text-decoration: none;">멤버 소개</a></div>
-        <div class="navbar-button" id="history">History</div>
+        <div class="navbar-button" id="history"><a href="/history" style="color: inherit; text-decoration: none;">History</a></div>
     </div>
     
-<div class="navbar-line"></div>
+    <div class="navbar-line"></div>
 
-<div class="top-section">
-    <img src="../static/img/screenshot-2024-01-01-at-4.46-1.png" alt="papers-Icon" class="paper-icon">
-    <div class="analysis-text">자료 요약</div>
-</div>
-
-<div class="analysis-box">
-    <div class="circle-checkmark">
-    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-    </svg>
+    <div class="top-section">
+        <img src="../static/img/screenshot-2024-01-01-at-4.46-1.png" alt="papers-Icon" class="paper-icon">
+        <div class="analysis-text">자료 요약</div>
     </div>
-    <div class="analysis-complete-text">분석 완료</div>
-</div>
 
-<div class="file-name-display">
-    <img src="../static/img/docs.png" alt="docs" class="icon docs-icon">
-    <span class="file-name">**your_actual_file_name.txt**</span>
-</div>
+    <!-- <div class="analysis-box"> -->
+    <input type="file" id="textfile" accept=".doxc, .ppt, .pdf" onchange="uploadFile()">
+    <button src="/static/upload_button.png" class="analysis-box" onclick="document.getElementById('textfile').click();">
+        <svg class = 'upload_svg' xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <mask id="mask0_39_984" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+                <path d="M0.444824 0H39.9999V39.5551H0.444824V0Z" fill="white"/>
+            </mask>
+            <g mask="url(#mask0_39_984)">
+                <path d="M5.38916 19.7842V34.6105H35.0555V19.7773" stroke="#909090" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M27.6388 12.3609L20.2222 4.94434L12.8057 12.3609" stroke="#909090" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.2153 26.37V4.94434" stroke="#909090" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+        </svg>
 
+        <div id = 'analysis-exp-text'>요약할 자료를 업로드 해주세요</div> 
+        <div id = 'analysis-exp-text2'>
+            *ppt, docx, pdf파일<br>
+            *파일당 최대 50MB</div>
+
+        <!-- <div class="analysis-complete-text">분석 완료</div> -->
+    </button>
+    <!-- </div> -->
+
+    <div class="file-name-display" style="display: none;">
+        <img src="../static/img/docs.png" alt="docs" class="icon docs-icon">
+        <span class="file-name">**your_actual_file_name.txt**</span>
+    </div>
+
+    <button class= 'delete_svg' style="display: none;" onclick="removeFile()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" fill="none">
+          <path d="M5.5 6L16.4999 16.9999" stroke="#909090" stroke-width="2" stroke-linecap="round"/>
+          <path d="M5.5 17L16.4999 6.00012" stroke="#909090" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+
+    <button class = 'analButton' style="display: none;"  onclick="anal()"></button> 
+    <div class="anal_circle_container">
+        <div id = 'anal_spinner' style="display: none;"></div>
+    </div>
+
+    <div class="circle-checkmark" style="display: none;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+    </div>
+
+    <div class = 'file-name-display' style="display: none;"></div>
 
 
 <div class="summary-box">
@@ -49,6 +81,6 @@
         <!-- 동적으로 로드된 요약 결과 내용을 여기에 삽입 -->
         <!-- 실제 내용을 추가하여 스크롤바가 나타나도록 함 -->
     </div>
-<script src="/static/js/sum_result.js"></script>
+<script src="../static/js/sum_result.js"></script>
 </body>
 </html>

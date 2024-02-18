@@ -93,7 +93,13 @@
     background-color: #DFDFDF;
     border: 2px solid #DFDFDF;
 }
-
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+#textfile {
+    display: none;
+}
 .top-section {
     position: relative;
     width: 1920px;
@@ -124,19 +130,126 @@
     color: #0034A6;
 }
 .analysis-box {
-    width: 416px;
+    cursor : pointer;
+    width: 415px;
     height: 244px; /* 높이를 필요에 따라 조정할 수 있습니다 */
     position: absolute;
     top: 285px;
     left: 323px;
     border-radius: 10px;
-    background:                 linear-gradient(0deg, #FCFCFC, #FCFCFC);
-    border: 2px solid #DFDFDF;
+    background:linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    border: 2px dashed #BBB;
     display: flex;
     align-items: center;
     justify-content: space-around; /* 내부 요소들 사이의 공간을 균등하게 분배합니다 */
     flex-direction: column;
 }
+#analysis-exp-text {
+    color: #909090;
+    text-align: center;
+    font-family: 'NanumSquareNeo', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17px;
+    display: felx;
+    letter-spacing: -0.01em;
+}
+#analysis-exp-text2 {
+    color: #BBB;
+    text-align: center;
+    font-family: "NanumSquareNeo", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    position : absolute;
+    justify-content : center;
+    padding-top : 70px;
+    display: flex;
+}
+#analysis-exp-text3{
+    color: #909090;
+    font-family: 'NanumSquareNeo', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    /*font-style: normal;*/
+    line-height: 17px;
+    text-align: center;
+    position : absolute;
+    top : 160px;
+    left : 180px;
+}
+.upload_svg {
+    position : absolute;
+    top : 59px;
+    left : 187px;
+
+}
+.uploadBox {
+    position: absolute;
+    top : 35px;
+    left : 35px;
+    border-radius: 10px;
+    background: #F6F6F6;
+    width: 346px;
+    height: 80px;
+    flex-shrink: 0;
+}
+.delete_svg{
+    width: 15.556px;
+    height: 15.556px;
+    transform: rotate(315);
+    flex-shrink: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position : absolute;
+    top : 348.5px;
+    left : 659px;
+  }
+
+.analButton {
+    cursor: pointer;
+    position: absolute;
+    top : 162px;
+    left : 133px;
+    width: 150px;
+    height: 47px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #0034A6;
+}
+
+.anal_circle_container{
+    position : absolute;
+    top: 100px;
+    left : 100px;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border: 1px solid white;
+  }
+  #anal_spinner {
+    position : absolute;
+    top: 170px;
+    left : 410px;
+    margin: calc(50% - 25px) auto;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+  
+    border: 3px solid #DFDFDF;  
+    border-top-color: #0034A6;
+    border-radius: 100%;
+    animation:spin 1s ease-in-out infinite;
+  }
+  @keyframes spin{
+    100%
+    {transform: rotate(360deg);
+    }
+  }
 
 .circle-checkmark {
     width: 58px;
@@ -223,6 +336,7 @@
     color: #333; /* 파일 이름의 폰트 색상 */
 }
 
+
 .summary-box {
     width: 834px;
     height: 675px;
@@ -270,3 +384,48 @@
     margin-top: 60px; /* 선과 요약 결과 텍스트 아래 여백 */
     height: calc(100% - 80px); /* 상자 높이에서 제목과 여백을 제외한 높이 */
 }
+
+#pdf_svg{
+    position: absolute;
+    top: 21px;
+    left : 29px;
+}
+
+#fileNameElementId{
+    color: #909090;
+    font-family: 'NanumSquare Neo';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.15px;
+    position : absolute;
+    top: 22px;
+    left: 87px;
+}
+#fileNameElementId2{
+    color: #FFF;
+    text-align: center;
+    font-family: "NanumSquare Neo";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -0.16px;
+    position: absolute;
+    top : 14px;
+    left : 46px;
+}
+#fileNameElementId3{
+    color: #BBB;
+    font-family: "NanumSquare Neo";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    position: absolute;
+    top: 48px;
+    left: 87px;
+}
+
