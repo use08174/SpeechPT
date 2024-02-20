@@ -15,7 +15,7 @@ from models.video.eye_tracking.example import analyze_gaze
 from models.speech.speech_analysis import *
 from audio_util import extract_audio
 
-async def analyze_file(file: UploadFile):
+async def analyze_pt_file(file: UploadFile):
     # Read the file's contents once
     contents = await file.read()
     
@@ -71,9 +71,28 @@ async def analyze_file(file: UploadFile):
 
     return result
 
+
+async def analyze_sum_file(file: UploadFile):
+    # Read the file's contents once
+    contents = await file.read()
+    
+    try:
+        if file.filename.endswith((".pdf", ".doc", ".docx")):
+            extracted_text = await extract_text_from_file(file)
+            summarized_text = summarize_text(extracted_text)
+            result = {"summarized_text": summarized_text}
+        else:
+            raise HTTPException(status_code=415, detail="Unsupported file format")
+
+    except Exception as e:
+        # Log the error or handle it as needed
+        print(f"Error processing file: {e}")
+        result = {"error": str(e)}
+    return result
+
+
 def perform_speech_analysis(temp_video_path):
     try:
-        # Assuming perform_stt is an async function; if not, you might need to run it in a thread
         audio_file_path = extract_audio(temp_video_path)
         stt_result = perform_stt(audio_file_path)
         
@@ -81,14 +100,12 @@ def perform_speech_analysis(temp_video_path):
             stt_text = stt_result[1]  # Extract the text from the result
         else:
             stt_text = stt_result  # Directly use the result if it's not a tuple
-        # Assuming analyze_speed and detect_pause are synchronous; consider running them in a thread for actual async
+
         speech_speed = analyze_speed(audio_file_path, stt_text)
         num_pauses, pause_durations = detect_pause(audio_file_path)
 
-        # Assuming detect_korean_filler_words is synchronous; again, consider threading if needed
         filler_words= detect_korean_filler_words(stt_text)
 
-        # Clean up: remove the temporary audio file
         os.remove(audio_file_path)
 
 

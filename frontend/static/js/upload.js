@@ -139,7 +139,7 @@ async function uploadFile() {
         analBox.removeChild(newBox2);
 
         try {
-          const response = await fetch('http://127.0.0.1:8000/detect/', {
+          const response = await fetch('http://127.0.0.1:8000/detect_pt/', {
               method: 'POST',
               body: formData
           });
@@ -156,8 +156,6 @@ async function uploadFile() {
           } 
       
       }
-      
-
       
     } 
 

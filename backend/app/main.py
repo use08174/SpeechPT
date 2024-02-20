@@ -7,7 +7,7 @@ import os
 import uuid
 
 # Assuming `analyze_file` is correctly implemented in 'func.py'
-from func import analyze_file
+from func import analyze_pt_file, analyze_sum_file
 
 app = FastAPI(title='Speech Practice')
 
@@ -24,10 +24,10 @@ app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "frontend", "s
 # Configure CORS middleware for cross-origin requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=["*"],  
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
+    allow_methods=["*"],  
+    allow_headers=["*"],  
 )
 
 # Temporary results storage
@@ -53,13 +53,13 @@ async def show_upload_page(request: Request):
     """Display upload page."""
     return templates.TemplateResponse("member.html", {"request": request})
 
-@app.post("/detect/")
+@app.post("/detect_pt/")
 async def analyze_endpoint(file: UploadFile = File(...)):
     """Analyze uploaded file and return results."""
     try:
         # Ensure file is not empty
         if file.file:
-            result = await analyze_file(file)
+            result = await analyze_pt_file(file)
             session_id = str(uuid.uuid4())
             results[session_id] = result  # Store result with session_id
         else:
@@ -71,6 +71,23 @@ async def analyze_endpoint(file: UploadFile = File(...)):
     
     return {"result": result, "session_id": session_id}
 
+@app.post("/detect_sum/")
+async def analyze_endpoint(file: UploadFile = File(...)):
+    """Analyze uploaded file and return results."""
+    try:
+        # Ensure file is not empty
+        if file.file:
+            result = await analyze_sum_file(file)
+            session_id = str(uuid.uuid4())
+            results[session_id] = result  # Store result with session_id
+        else:
+            raise HTTPException(status_code=400, detail="No file uploaded or file is empty.")
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
+    # Ensure result is serializable, consider converting result if it's a complex object
+    
+    return {"result": result, "session_id": session_id}
 
 if __name__ == "__main__":
     import uvicorn

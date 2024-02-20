@@ -141,7 +141,7 @@ async function uploadFile() {
     analBox.removeChild(waitingBox);
     analBox.removeChild(analbutton);
     try {
-      const response = await fetch('http://127.0.0.1:8000/detect/', {
+      const response = await fetch('http://127.0.0.1:8000/detect_sum/', {
           method: 'POST',
           body: formData
       });
@@ -158,9 +158,9 @@ async function uploadFile() {
       } 
   
   }
-
-
 }
+
+
 function createSvgElement(elementType, attributes) {
   const element = document.createElementNS('http://www.w3.org/2000/svg', elementType);
   for (let key in attributes) {
