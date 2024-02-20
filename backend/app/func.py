@@ -26,6 +26,7 @@ async def analyze_pt_file(file: UploadFile):
         
     try:
         if file.filename.endswith((".mp4")):
+            print("pt analysis started..")
             # 1. emotion analysis
             cap = cv2.VideoCapture(temp_video_path)
             if not cap.isOpened():
