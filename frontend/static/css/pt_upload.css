@@ -417,7 +417,7 @@
 
 .large-box {
     width: 830px;
-    height: 1329px;
+    height: 2200px;
     position: absolute;
     top: 285px;
     left: 767px;
@@ -697,4 +697,149 @@
     left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
 }
 
+
+.box-emotion {
+    width: 737px;
+    height: 190px;
+    position: absolute;
+    top: 1327px;
+    left: 50px;
+    border-radius: 20px;
+    background: #113178;
+}
+
+.text.emotion-analysis {
+    width: 149px;
+    height: 28px;
+    position: absolute;
+    top: 35px; /* 상자 내부 상단으로부터의 거리 */
+    left: 40px; /* 상자 내부 왼쪽으로부터의 거리 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.subtext-7 {
+    width: 267px;
+    height: 14px;
+    position: absolute;
+    top: 71px; /* 첫 번째 텍스트 아래에 위치 */
+    left: 40px; /* 동일한 좌측 정렬 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #B5B5B5;
+    white-space: nowrap;
+}
+
+.icon.emotion{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 35px; /* 상자 내부 상단으로부터의 거리와 일치 */
+    left: 665px; /* 상자 오른쪽 내부에 위치하도록 조정 */
+    filter: invert(100%);
+}
+
+.line-box-8 {
+    width: 737px;
+    height: 261px;
+    position: absolute;
+    top: 1447px;
+    left: 50px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    border: 1.5px solid #DFDFDF;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.14); /* #00000014을 rgba로 변환 */
+}
+
+.line-box-8::before {
+    content: '';
+    position: absolute;
+    width: 681px;
+    height: 1.5px;
+    background: #DFDFDF;
+    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
+    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
+}
+
+.box-gaze-tracking {
+    width: 737px;
+    height: 190px;
+    position: absolute;
+    top: 1743px;
+    left: 50px;
+    border-radius: 20px;
+    background: #113178;
+}
+
+.text.gaze-tracking {
+    width: 149px;
+    height: 28px;
+    position: absolute;
+    top: 35px; /* 상자 내부 상단으로부터의 거리 */
+    left: 40px; /* 상자 내부 왼쪽으로부터의 거리 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    white-space: nowrap;
+    color: #FFFFFF;
+}
+
+.subtext-9 {
+    width: 267px;
+    height: 14px;
+    position: absolute;
+    top: 71px; /* 첫 번째 텍스트 아래에 위치 */
+    left: 40px; /* 동일한 좌측 정렬 */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #B5B5B5;
+    white-space: nowrap;
+}
+
+.icon.eyes {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 35px; /* 상자 내부 상단으로부터의 거리와 일치 */
+    left: 665px; /* 상자 오른쪽 내부에 위치하도록 조정 */
+    filter: invert(100%);
+}
+
+.line-box-10 {
+    width: 737px;
+    height: 261px;
+    position: absolute;
+    top: 1863px;
+    left: 50px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, #FCFCFC, #FCFCFC);
+    border: 1.5px solid #DFDFDF;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.14); /* #00000014을 rgba로 변환 */
+}
+
+.line-box-10::before {
+    content: '';
+    position: absolute;
+    width: 681px;
+    height: 1.5px;
+    background: #DFDFDF;
+    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
+    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
+}
 

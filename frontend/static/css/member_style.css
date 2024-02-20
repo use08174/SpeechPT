@@ -1,5 +1,17 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'made_soulmaze';
+    src: url(../font/made_soulmaze/MADE\ Soulmaze\ PERSONAL\ USE.otf) format("opentype");
+}
+
 body {
-  font-family: Verdana;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
   font-size: 1.5em;
 }
 
@@ -42,8 +54,9 @@ body {
 #team-members .member div.name {
   text-align: center;
 	margin: 0 20px 20px 0; /* 위쪽과 왼쪽으로는 간격을 주지 않고, 오른쪽과 아래쪽으로 20px 간격을 줌 */
-	font-family: 'Roboto', sans-serif; /* Arial 폰트를 사용합니다. */
-	font-size: 20px; /* 폰트 크기를 14px로 변경합니다. */
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+	color: #909090;
+	font-size: 14px; /* 폰트 크기를 14px로 변경합니다. */
 }
 
 .member {
@@ -99,9 +112,10 @@ a {
 .Prometheus {
 	position: absolute;
 	bottom: 20%;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+	font-weight: 900;
 	left: 35%;
 	width: 80%;
-	font: bold
 }
 
 
@@ -123,9 +137,10 @@ a {
 	width: 81px;
 	height: 22px;
 	position: absolute;
+	font-weight: 800;
 	left: 0px;
 	top: 0px;
-	font-family: NanumSquare Neo;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 	text-align: center;
 	font-size: 20px;
 	letter-spacing: -1;
@@ -135,10 +150,11 @@ a {
 	color:  rgba(143.91894936561584, 143.91894936561584, 143.91894936561584, 1);
 	width: 81px;
 	height: 22px;
+	font-weight: 800;
 	position: absolute;
 	left: 172px;
 	top: 0px;
-	font-family: NanumSquare Neo;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 	text-align: center;
 	font-size: 20px;
 	letter-spacing: -1;
@@ -148,10 +164,11 @@ a {
 	color:  rgba(143.91894936561584, 143.91894936561584, 143.91894936561584, 1);
 	width: 81px;
 	height: 22px;
+	font-weight: 800;
 	position: absolute;
 	left: 344px;
 	top: 0px;
-	font-family: NanumSquare Neo;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 	text-align: center;
 	font-size: 20px;
 	letter-spacing: -1;
@@ -162,27 +179,26 @@ a {
 	width: 76px;
 	height: 22px;
 	position: absolute;
+	font-weight: 800;
 	left: 516px;
 	top: 0px;
-	font-family: NanumSquare Neo;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 	text-align: center;
 	font-size: 20px;
 	letter-spacing: -1;
 }
 
 .logo {
-	font-weight: bold; /* 텍스트를 두껍게 만듭니다. */
 	color: rgba(0, 52.000000700354576, 166.00000530481339, 1);
 	width: 260px;
 	height: 53px;
 	position: absolute;
 	left: 323px;
 	top: 29px;
-	font-family: MADE Soulmaze;
+    font-family: 'made_soulmaze', sans-serif;
 	text-align: left;
 	font-size: 40px;
 	letter-spacing: 0;
-	text-shadow: 2px 2px 2px rgba(0, 52.000000700354576, 166.00000530481339, 1); /* 텍스트에 그림자 추가 */
 	text-stroke: 2px black; /* 다른 브라우저에서 텍스트에 선 추가 */
 
 }
