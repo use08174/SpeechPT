@@ -37,7 +37,7 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
     result = []
 
     # 30초에 해당하는 프레임 수 (30초동안 눈 10회 이상 깜빡이는지 보려고. 사람 평균이 1분에 20회라고 함)
-    frames_per_30sec = 12
+    frames_per_30sec = 15
 
     while True:
         # 프레임 읽기
@@ -93,17 +93,17 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
             blink_rate_in_30sec = blink_count / (elapsed_seconds / 30)
             if blink_rate_in_30sec > frames_per_30sec:
                 # 눈 깜빡임 횟수가 frames_per_minute보다 크면 "눈을 자주 깜빡입니다!" 메시지 출력
-                text1 = "눈 깜빡임이 잦습니다"
+                text1 = "눈 깜빡임이 잦습니다."
 
             else:
-                text1 = "눈 깜빡임이 적당합니다"
+                text1 = "눈 깜빡임이 적당합니다."
 
             if right // unstable_gaze_count > (2 / 3):
-                text3 = "오른쪽으로 시선이 치우쳐집니다"
+                text3 = "오른쪽으로 시선이 치우쳐집니다."
 
 
             elif left // unstable_gaze_count > (2 / 3):
-                text3 = "왼쪽으로 시선이 치우쳐집니다"
+                text3 = "왼쪽으로 시선이 치우쳐집니다."
 
             rate = blink_rate_in_30sec / 10
             # text2 = f'My blink frequency compared to the average person:{rate}'
@@ -113,7 +113,7 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
             # cv2.putText(frame, text2, (90, 530), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
             # cv2.putText(frame, text3, (90, 580), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
 
-        cv2.imshow("Demo", frame)
+        #cv2.imshow("Demo", frame)
 
         # 1분 동안의 눈 깜빡임 횟수 확인
         if cv2.waitKey(1) == 28:
@@ -121,8 +121,16 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
 
     # 출력 영상 닫기
     result = [text0, text1, text2, text3]
+    if text0!="":
+        text0="시선이 불안정하며 "
+    # rate 값을 소수점 둘째 자리까지 포매팅
+    rate_formatted = "{:.2f}".format(rate)
+    ment2=" 평균대비 눈 깜빡임이 "+rate_formatted+"로 "
+    ment=text0+text3+ment2+text1
+    
     out.release()
     video_capture.release()
     cv2.destroyAllWindows()
 
-    return result
+    return ment
+
