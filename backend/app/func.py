@@ -57,11 +57,6 @@ async def analyze_pt_file(file: UploadFile):
             }
             print(result)
 
-        elif file.filename.endswith((".pdf", ".doc", ".docx")):
-            extracted_text = await extract_text_from_file(file)
-            summarized_text = summarize_text(extracted_text)
-            result = {"summarized_text": summarized_text}
-
         else:
             raise HTTPException(status_code=415, detail="Unsupported file format")
 
@@ -78,12 +73,17 @@ async def analyze_sum_file(file: UploadFile):
     contents = await file.read()
     
     try:
-        if file.filename.endswith((".pdf", ".doc", ".docx")):
-            extracted_text = await extract_text_from_file(file)
+        # Assuming `file` is an object with attributes/methods to access its filename and contents
+        file_extension = file.filename.rsplit('.', 1)[1].lower()  # Extract the file extension
+        if file_extension in ("pdf", "docx"):
+            contents = await file.read()  # This is just an example; the actual method may vary.
+            extracted_text = await extract_text_from_file(file_extension, contents)
+            print(extracted_text)
             summarized_text = summarize_text(extracted_text)
+            
             result = {"summarized_text": summarized_text}
         else:
-            raise HTTPException(status_code=415, detail="Unsupported file format")
+            raise ValueError(f"Unsupported file format: {file_extension}")
 
     except Exception as e:
         # Log the error or handle it as needed

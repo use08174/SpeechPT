@@ -1,6 +1,7 @@
 const fileNameDisplay = document.querySelector('.file-name-display');
 const fileNameElement = document.querySelector('.file-name');
 
+
 // 전 페이지에서 받아온 파일 이름을 저장할 변수
 let receivedFileName;
 
@@ -120,6 +121,8 @@ async function uploadFile() {
     
     const fileSizeInMB = file.size/1024/1024;
     fileNameElement3.innerText = fileSizeInMB.toFixed(2)+'MB';
+
+    const resultBox = document.querySelector('.summary-content');
     resultBox.appendChild(fileNameElement);
     resultBox.appendChild(fileNameElement3);
      
@@ -150,7 +153,10 @@ async function uploadFile() {
         result()
         // Assuming the result is now in `data.result` and session_id in `data.session_id`
         console.log('Analysis complete:', data);
-        displayResult(data.result, data.session_id); // Display results to the user
+        const resultBox = document.querySelector('.summary-content');
+        const summaryElement = document.createElement('div');
+        summaryElement.textContent = data.result.result;
+        resultBox.appendChild(summaryElement);
       }
       } catch (error) {
         console.error('Error:', error);
