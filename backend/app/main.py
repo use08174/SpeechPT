@@ -68,8 +68,10 @@ async def analyze_endpoint(file: UploadFile = File(...)):
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
     # Ensure result is serializable, consider converting result if it's a complex object
-    
+    print(result)
     return {"result": result, "session_id": session_id}
+
+
 
 @app.post("/detect_sum/")
 async def analyze_endpoint(file: UploadFile = File(...)):
