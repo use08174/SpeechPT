@@ -70,9 +70,9 @@ def emotion_detection_result(p_emotion_list):
         result_emotions.append('neutral')
 
     feedback_rst = []
-    emo_feedback_dict_keys = emotions_feedback_dict.keys()
+    emo_feedback_dict_keys = emo_feedback_dict.keys()
     for emo in result_emotions:
         if emo in emo_feedback_dict_keys:
-            feedback_rst.append(emotions_feedback_dict[emo])
+            feedback_rst.append(emo_feedback_dict[emo])
 
     return {'emotion': feedback_rst}
