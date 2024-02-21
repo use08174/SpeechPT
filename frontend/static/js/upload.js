@@ -155,26 +155,29 @@ async function uploadFile() {
               const lineBox8 = document.querySelector('.line-box-8');
               const lineBox10 = document.querySelector('.line-box-10');
     
-              // 각각의 HTML 요소에 결과를 추가
-              const resultElement2 = document.createElement('div');
-              resultElement2.textContent = '분석 결과: ' + data.result2;
-              lineBox2.appendChild(resultElement2);
-  
-              const resultElement4 = document.createElement('div');
-              resultElement4.textContent = '분석 결과: ' + data.result4;
-              lineBox4.appendChild(resultElement4);
-  
-              const resultElement6 = document.createElement('div');
-              resultElement6.textContent = '분석 결과: ' + data.result6;
-              lineBox6.appendChild(resultElement6);
-  
-              const resultElement8 = document.createElement('div');
-              resultElement8.textContent = '분석 결과: ' + data.result8;
-              lineBox8.appendChild(resultElement8);
-  
-              const resultElement10 = document.createElement('div');
-              resultElement10.textContent = '분석 결과: ' + data.result10;
-              lineBox10.appendChild(resultElement10);
+              // Display emotion analysis
+              const emotionAnalysis = data.emotion.emotion.join(", ");
+              const emotionElement = document.createElement('div');
+              emotionElement.textContent = emotionAnalysis;
+              lineBox2.appendChild(emotionElement);
+
+              // Display speech speed
+              const speechSpeedElement = document.createElement('div');
+              speechSpeedElement.textContent = data.speech.speed;
+              lineBox4.appendChild(speechSpeedElement);
+
+              // Display number of pauses
+              const numPausesElement = document.createElement('div');
+              numPausesElement.textContent = data.speech.num_pauses;
+              lineBox6.appendChild(numPausesElement);
+
+              // Display filler words
+              // Assuming filler words are an object where each property is a filler word and its value is the count
+              const fillerWords = data.speech.filler_words;
+              const fillerWordsText = Object.entries(fillerWords).map(([word, count]) => `${word}: ${count}번`).join(", ");
+              const fillerWordsElement = document.createElement('div');
+              fillerWordsElement.textContent = fillerWordsText;
+              lineBox8.appendChild(fillerWordsElement);
           } else {
               throw new Error('Failed to fetch analysis result');
           }
@@ -183,7 +186,8 @@ async function uploadFile() {
           alert(error);
       }
   }
-
+}
+/*
 // 파일 업로드 input 요소의 change 이벤트를 처리하는 함수
 function handleFileInputChange(event) {
   const file = event.target.files[0];
@@ -195,7 +199,7 @@ function handleFileInputChange(event) {
 // 파일 업로드 input 요소에 change 이벤트 리스너 추가
 const fileInput = document.getElementById('fileInput');
 fileInput.addEventListener('change', handleFileInputChange);
-
+*/
 
 function createSvgElement(elementType, attributes) {
 const element = document.createElementNS('http://www.w3.org/2000/svg', elementType);

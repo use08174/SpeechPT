@@ -69,7 +69,7 @@ async def analyze_endpoint(file: UploadFile = File(...)):
 
     # Ensure result is serializable, consider converting result if it's a complex object
     print(result)
-    return {"result": result, "session_id": session_id}
+    return result
 
 
 
