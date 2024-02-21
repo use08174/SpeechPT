@@ -143,21 +143,59 @@ async function uploadFile() {
               method: 'POST',
               body: formData
           });
-          if (response.ok){
-            const data = await response.json();
-            result()
-            // Assuming the result is now in `data.result` and session_id in `data.session_id`
-            console.log('Analysis complete:', data);
-            displayResult(data.result, data.session_id); // Display results to the user
+          if (response.ok) {
+              const data = await response.json();
+              result();
+              console.log('Analysis complete:', data);
+              
+              // 결과를 출력하고자 하는 HTML 요소들을 선택
+              const lineBox2 = document.querySelector('.line-box-2');
+              const lineBox4 = document.querySelector('.line-box-4');
+              const lineBox6 = document.querySelector('.line-box-6');
+              const lineBox8 = document.querySelector('.line-box-8');
+              const lineBox10 = document.querySelector('.line-box-10');
+    
+              // 각각의 HTML 요소에 결과를 추가
+              const resultElement2 = document.createElement('div');
+              resultElement2.textContent = '분석 결과: ' + data.result2;
+              lineBox2.appendChild(resultElement2);
+  
+              const resultElement4 = document.createElement('div');
+              resultElement4.textContent = '분석 결과: ' + data.result4;
+              lineBox4.appendChild(resultElement4);
+  
+              const resultElement6 = document.createElement('div');
+              resultElement6.textContent = '분석 결과: ' + data.result6;
+              lineBox6.appendChild(resultElement6);
+  
+              const resultElement8 = document.createElement('div');
+              resultElement8.textContent = '분석 결과: ' + data.result8;
+              lineBox8.appendChild(resultElement8);
+  
+              const resultElement10 = document.createElement('div');
+              resultElement10.textContent = '분석 결과: ' + data.result10;
+              lineBox10.appendChild(resultElement10);
+          } else {
+              throw new Error('Failed to fetch analysis result');
           }
-          } catch (error) {
-            console.error('Error:', error);
-            alert(error)
-          } 
-      
+      } catch (error) {
+          console.error('Error:', error);
+          alert(error);
       }
-      
-    } 
+  }
+
+// 파일 업로드 input 요소의 change 이벤트를 처리하는 함수
+function handleFileInputChange(event) {
+  const file = event.target.files[0];
+  if (file) {
+      handleFileUpload(file);
+  }
+}
+
+// 파일 업로드 input 요소에 change 이벤트 리스너 추가
+const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', handleFileInputChange);
+
 
 function createSvgElement(elementType, attributes) {
 const element = document.createElementNS('http://www.w3.org/2000/svg', elementType);
