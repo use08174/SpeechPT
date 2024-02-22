@@ -145,7 +145,6 @@ async function uploadFile() {
           });
           if (response.ok) {
               const data = await response.json();
-              result();
               console.log('Analysis complete:', data);
               
               // 결과를 출력하고자 하는 HTML 요소들을 선택
@@ -154,22 +153,17 @@ async function uploadFile() {
               const lineBox6 = document.querySelector('.line-box-6');
               const lineBox8 = document.querySelector('.line-box-8');
               const lineBox10 = document.querySelector('.line-box-10');
-    
-              // Display emotion analysis
-              const emotionAnalysis = data.emotion.emotion.join(", ");
-              const emotionElement = document.createElement('div');
-              emotionElement.textContent = emotionAnalysis;
-              lineBox2.appendChild(emotionElement);
+
 
               // Display speech speed
               const speechSpeedElement = document.createElement('div');
               speechSpeedElement.textContent = data.speech.speed;
-              lineBox4.appendChild(speechSpeedElement);
+              lineBox2.appendChild(speechSpeedElement);
 
               // Display number of pauses
               const numPausesElement = document.createElement('div');
               numPausesElement.textContent = data.speech.num_pauses;
-              lineBox6.appendChild(numPausesElement);
+              lineBox4.appendChild(numPausesElement);
 
               // Display filler words
               // Assuming filler words are an object where each property is a filler word and its value is the count
@@ -177,7 +171,18 @@ async function uploadFile() {
               const fillerWordsText = Object.entries(fillerWords).map(([word, count]) => `${word}: ${count}번`).join(", ");
               const fillerWordsElement = document.createElement('div');
               fillerWordsElement.textContent = fillerWordsText;
-              lineBox8.appendChild(fillerWordsElement);
+              lineBox6.appendChild(fillerWordsElement);
+
+              // Display emotion analysis
+              const emotionAnalysis = data.emotion.emotion.join(", ");
+              const emotionElement = document.createElement('div');
+              emotionElement.textContent = emotionAnalysis;
+              lineBox8.appendChild(emotionElement);
+
+              // Display gaze tracking
+              const gazeTrackingElement = document.createElement('div');
+              gazeTrackingElement.textContent = data.gaze_tracking;
+              lineBox10.appendChild(gazeTrackingElement);
           } else {
               throw new Error('Failed to fetch analysis result');
           }
@@ -282,4 +287,3 @@ function truncateText(text, maxLength) {
   }
   return truncated;
 }
-
