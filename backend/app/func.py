@@ -96,6 +96,7 @@ def perform_speech_analysis(temp_video_path):
     try:
         audio_file_path = extract_audio(temp_video_path)
         stt_result = perform_stt(audio_file_path)
+        print(stt_result)
         
         if isinstance(stt_result, tuple):
             stt_text = stt_result[1]  # Extract the text from the result
@@ -103,7 +104,7 @@ def perform_speech_analysis(temp_video_path):
             stt_text = stt_result  # Directly use the result if it's not a tuple
 
         speech_speed = analyze_speed(audio_file_path, stt_text)
-        num_pauses, pause_durations = detect_pause(audio_file_path)
+        num_pauses = detect_pause(audio_file_path)
 
         filler_words= detect_korean_filler_words(stt_text)
 
@@ -116,9 +117,9 @@ def perform_speech_analysis(temp_video_path):
     
     print("analyzing audio_file finished")
     # Return the analyzed speech data
+    print("filler", filler_words)
     return {
         "speed": speech_speed,
         "num_pauses": num_pauses,
-        "pause_durations": pause_durations,
         "filler_words": filler_words
     }

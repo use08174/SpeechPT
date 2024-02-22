@@ -145,6 +145,7 @@ async function uploadFile() {
           });
           if (response.ok) {
               const data = await response.json();
+              result();
               console.log('Analysis complete:', data);
               
               // 결과를 출력하고자 하는 HTML 요소들을 선택
@@ -168,9 +169,8 @@ async function uploadFile() {
               // Display filler words
               // Assuming filler words are an object where each property is a filler word and its value is the count
               const fillerWords = data.speech.filler_words;
-              const fillerWordsText = Object.entries(fillerWords).map(([word, count]) => `${word}: ${count}번`).join(", ");
               const fillerWordsElement = document.createElement('div');
-              fillerWordsElement.textContent = fillerWordsText;
+              fillerWordsElement.textContent = fillerWords;
               lineBox6.appendChild(fillerWordsElement);
 
               // Display emotion analysis
@@ -181,7 +181,7 @@ async function uploadFile() {
 
               // Display gaze tracking
               const gazeTrackingElement = document.createElement('div');
-              gazeTrackingElement.textContent = data.gaze_tracking;
+              gazeTrackingElement.textContent = data.gaze;
               lineBox10.appendChild(gazeTrackingElement);
           } else {
               throw new Error('Failed to fetch analysis result');
