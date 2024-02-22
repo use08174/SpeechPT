@@ -39,7 +39,7 @@ async def analyze_pt_file(file: UploadFile):
             
             # 2. gaze tracking
             try:
-                gaze_result = analyze_gaze(temp_video_path, 'output2.mp4')
+                gaze_result = analyze_gaze(temp_video_path)
                 print("눈동자 추적 분석 결과:", gaze_result)
             except Exception as e:
                 print(f"오류 발생: {e}")

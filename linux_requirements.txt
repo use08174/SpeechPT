@@ -1,0 +1,16 @@
+uvicorn
+fastapi
+numpy 
+opencv-python 
+onnxruntime
+pillow
+PyMuPDF
+python-docx
+transformers
+dlib == 19.17.*
+SpeechRecognition
+pydub
+ffmpeg-python
+python-multipart
+Jinja2
+cmake

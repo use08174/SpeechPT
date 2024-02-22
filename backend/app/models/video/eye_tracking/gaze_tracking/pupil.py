@@ -30,6 +30,10 @@ class Pupil(object):
         Returns:
             A frame with a single element representing the iris
         """
+        if eye_frame is None or eye_frame.size == 0:
+            print("빈 프레임이 전달되었습니다.")
+            return None  # 또는 다른 적절한 반환값
+    
         kernel = np.ones((3, 3), np.uint8)
         new_frame = cv2.bilateralFilter(eye_frame, 10, 15, 15)
         new_frame = cv2.erode(new_frame, kernel, iterations=3)

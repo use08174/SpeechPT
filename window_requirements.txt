@@ -1,0 +1,16 @@
+uvicorn
+fastapi
+
+
+onnxruntime
+pillow
+PyMuPDF
+python-docx
+transformers
+
+SpeechRecognition
+pydub
+ffmpeg-python
+python-multipart
+Jinja2
+cmake
