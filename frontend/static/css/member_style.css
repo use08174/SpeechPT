@@ -120,7 +120,8 @@ a {
 
 
 .button-block > span > a:hover {
-	color: rgba(0, 52.000000700354576, 166.00000530481339);
+	background-color: #ddd;
+	color: black;
 }
 
 .button-block {
@@ -202,4 +203,3 @@ a {
 	text-stroke: 2px black; /* 다른 브라우저에서 텍스트에 선 추가 */
 
 }
-
