@@ -4,18 +4,20 @@ from typing import List
 
 gaze = GazeTracking()
 
-def analyze_gaze(video_path:str, output_path:str)->List[str]:
+def analyze_gaze(video_path:str)->List[str]:
     # video_path = 'minute.mp4'
     video_capture = cv2.VideoCapture(video_path)
-
+    if not video_capture.isOpened():
+        print(f"비디오 파일을 열 수 없습니다: {video_path}")
+        return
 
     # 영상 저장 설정
-    output_path = 'output2.mp4'
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    fps = int(video_capture.get(cv2.CAP_PROP_FPS))
-    frame_width = int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
-    frame_height = int(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    out = cv2.VideoWriter(output_path, fourcc, fps, (frame_width, frame_height))
+    #output_path = 'output2.mp4'
+    #fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    #fps = int(video_capture.get(cv2.CAP_PROP_FPS))
+    #frame_width = int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
+    #frame_height = int(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    #out = cv2.VideoWriter(output_path, fourcc, fps, (frame_width, frame_height))
 
     unstable_gaze_count = 0
     tracking_started = False
@@ -37,8 +39,8 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
 
     result = []
 
-    # 30초에 해당하는 프레임 수 (30초동안 눈 10회 이상 깜빡이는지 보려고. 사람 평균이 1분에 20회라고 함)
-    frames_per_30sec = 15
+    # 20초에 해당하는 프레임 수 (20초동안 눈 8회 이상 깜빡이는지 보려고. 사람 평균이 1분에 20회라고 함)
+    frames_per_20sec = 8
 
     while True:
         # 프레임 읽기
@@ -46,6 +48,7 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
 
         # 모든 프레임을 읽었을 때 종료
         if not ret:
+            print("프레임을 읽을 수 없습니다.")
             break
 
         # GazeTracking을 사용하여 프레임 분석
@@ -76,23 +79,29 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
 
         if tracking_started and unstable_gaze_count >= 6:
             text0 = "시선이 불안정합니다"
-            # cv2.putText(frame, "Unstable gaze", (90, 190), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
+            #cv2.putText(frame, "Unstable gaze", (90, 190), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
 
-        cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
+        #cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
 
         left_pupil = gaze.pupil_left_coords()
         right_pupil = gaze.pupil_right_coords()
-        cv2.putText(frame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
-        cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31),
-                    1)
+        #cv2.putText(frame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
+        #cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31),
+        #            1)
 
         # 경과 시간 계산
         elapsed_frames = int(video_capture.get(cv2.CAP_PROP_POS_FRAMES))  # 경과 프레임 수
         elapsed_seconds = elapsed_frames / fps  # 경과 초
 
         if elapsed_seconds > video_length_seconds - 5:
-            blink_rate_in_30sec = blink_count / (elapsed_seconds / 30)
-            if blink_rate_in_30sec > frames_per_30sec:
+            if elapsed_seconds > 0:
+                blink_rate_in_20sec = blink_count / (elapsed_seconds / 20)
+            else:
+            # 적절한 오류 처리 또는 대체 로직
+                print("영상의 길이가 너무 짧습니다.")
+                return []
+            #blink_rate_in_20sec = blink_count / (elapsed_seconds / 20)
+            if blink_rate_in_20sec > frames_per_20sec:
                 # 눈 깜빡임 횟수가 frames_per_minute보다 크면 "눈을 자주 깜빡입니다!" 메시지 출력
                 text1 = "눈 깜빡임이 잦습니다"
 
@@ -106,13 +115,13 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
             elif left // unstable_gaze_count > (2 / 3):
                 text3 = "왼쪽으로 시선이 치우쳐집니다"
 
-            rate = blink_rate_in_30sec / 10
-            # text2 = f'My blink frequency compared to the average person:{rate}'
-            text2 = rate
+            rate = blink_rate_in_20sec / 8
+            
+            text2 = f"평균대비 눈 깜빡임 비율: {rate:.2f}"
 
-            # cv2.putText(frame, text1, (90, 480), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
-            # cv2.putText(frame, text2, (90, 530), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
-            # cv2.putText(frame, text3, (90, 580), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
+            #cv2.putText(frame, text1, (90, 480), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
+            #cv2.putText(frame, str(text2), (90, 530), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
+            #cv2.putText(frame, text3, (90, 580), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
 
         #cv2.imshow("Demo", frame)
 
@@ -124,13 +133,15 @@ def analyze_gaze(video_path:str, output_path:str)->List[str]:
     result = [text0, text1, text2, text3]
     if text0!="":
         text0="시선이 불안정하며 "
+    if text3=="":
+        text3=" 시선처리가 특정방향으로 쏠리지 않으며 정면을 잘 응시합니다. "
     # rate 값을 소수점 둘째 자리까지 포매팅
-    rate_formatted = "{:.2f}".format(rate)
-    ment2=" 평균대비 눈 깜빡임이 "+rate_formatted+"로 "
-    ment=text0+text3+ment2+text1
+   
     
-    out.release()
-    video_capture.release()
-    cv2.destroyAllWindows()
+    ment=f"{text0} {text3} 평균대비 눈 깜빡임이 {rate:.2f}로 {text1}"
+    
+    #out.release()
+    #video_capture.release()
+    #cv2.destroyAllWindows()
 
-    return ment
+    return [ment]
