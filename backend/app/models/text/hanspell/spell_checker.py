@@ -45,8 +45,8 @@ def check(text):
         return Checked(result=False)
 
     payload = {
-       'passportKey' : '035fb0dc63c91a010145c8ae6be53ca51fbf540d',
-        '_callback': 'jQuery112404559439701677064_1707464020616',
+       'passportKey' : 'c5f8a67b9f85b45009b57c9ede6ee783b3e9f0cf',
+        '_callback': 'jQuery1124041190340203197406_1708630237476',
         'color_blindness': '0',
         'q': text
     }

@@ -74,10 +74,11 @@ async def analyze_sum_file(file: UploadFile):
     
     try:
         # Assuming `file` is an object with attributes/methods to access its filename and contents
-        file_extension = file.filename.rsplit('.', 1)[1].lower()  # Extract the file extension
-        if file_extension in ("pdf", "docx"):
-            contents = await file.read()  # This is just an example; the actual method may vary.
-            extracted_text = await extract_text_from_file(file_extension, contents)
+        # file_extension = file.filename.rsplit('.', 1)[1].lower()  # Extract the file extension
+        # file_extension = file.name.rsplit('.', 1)[1].lower()
+        file_extension = file.filename.rsplit('.', 1)[1].lower()
+        if file.filename.endswith((".docx",".pdf")): ###여기 수정
+            extracted_text = extract_text_from_file(file_extension, contents) #await빼기
             print(extracted_text)
             summarized_text = summarize_text(extracted_text)
             
@@ -88,7 +89,7 @@ async def analyze_sum_file(file: UploadFile):
     except Exception as e:
         # Log the error or handle it as needed
         print(f"Error processing file: {e}")
-        result = {"error": str(e)}
+        result = {"error":str(e)}
     return result
 
 

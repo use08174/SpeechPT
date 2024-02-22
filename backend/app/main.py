@@ -19,12 +19,12 @@ templates_directory = os.path.join(BASE_DIR, "frontend", "templates")
 templates = Jinja2Templates(directory=templates_directory)
 
 # Configure static files directory
-app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "frontend", "static")), name="static")
+app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "frontend", "static")), name="static") 
 
 # Configure CORS middleware for cross-origin requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["*"],   
     allow_credentials=True,
     allow_methods=["*"],  
     allow_headers=["*"],  
@@ -65,7 +65,7 @@ async def analyze_endpoint(file: UploadFile = File(...)):
         else:
             raise HTTPException(status_code=400, detail="No file uploaded or file is empty.")
     except Exception as e:
-        return JSONResponse(content={"error": str(e)}, status_code=500)
+        return JSONResponse(content={"error": e}, status_code=500) ####str{e} -> {e}로 수정
 
     # Ensure result is serializable, consider converting result if it's a complex object
     print(result)
@@ -85,7 +85,7 @@ async def analyze_endpoint(file: UploadFile = File(...)):
         else:
             raise HTTPException(status_code=400, detail="No file uploaded or file is empty.")
     except Exception as e:
-        return JSONResponse(content={"error": str(e)}, status_code=500)
+        return JSONResponse(content={"error": e}, status_code=500) ###str{e} -> e로 수정
 
     # Ensure result is serializable, consider converting result if it's a complex object
     print({"result": result, "session_id": session_id})
