@@ -112,13 +112,13 @@ body {
   /*border: 1px solid gray;*/
   margin: 10px;
   padding: 6px;
-  margin: 0 20px 20px 0; /* 위쪽과 왼쪽으로는 간격을 주지 않고, 오른쪽과 아래쪽으로 20px 간격을 줌 */
+  margin: 0 18px 18px 0; /* 위쪽과 왼쪽으로는 간격을 주지 않고, 오른쪽과 아래쪽으로 20px 간격을 줌 */
 }
 
 #team-members .member img {
 	width: 200px; /* 이미지 너비 */
 	height: 200px; /* 이미지 높이 */
-	margin: 0 20px 20px 0; /* 오른쪽과 아래쪽으로 20px 간격 */
+	margin: 0 18px 18px 0; /* 오른쪽과 아래쪽으로 20px 간격 */
 	border-radius: 10px; /* 모서리를 둥글게 */
 	box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* 이미지에 그림자 추가 */
 	transition: transform 0.3s ease; /* 마우스 오버 시 애니메이션 효과 */
@@ -126,7 +126,7 @@ body {
 
 #team-members .member div.name {
   text-align: center;
-	margin: 0 20px 20px 0; /* 위쪽과 왼쪽으로는 간격을 주지 않고, 오른쪽과 아래쪽으로 20px 간격을 줌 */
+	margin: 0 18px 18px 0; /* 위쪽과 왼쪽으로는 간격을 주지 않고, 오른쪽과 아래쪽으로 20px 간격을 줌 */
     font-family: 'NanumSquareNeo-Variable', sans-serif;
 	color: #909090;
 	font-size: 14px; /* 폰트 크기를 14px로 변경합니다. */
