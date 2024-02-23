@@ -1,0 +1,5 @@
+/backend/__pycache__
+/backend/app/__pycache__
+/backend/app/models/speech/__pycache__
+/backend/app/models/video/eye_tracking/__pycache__
+/backend/app/models/video/eye_tracking/gaze_tracking/__pycache__

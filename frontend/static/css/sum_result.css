@@ -20,16 +20,19 @@
     height: 1705px;
 }
 
+
 .navbar {
-    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
     top: 0;
     left: 0;
-    width: 1920px;
+    overflow: hidden;
+    width: 100%;
     height: 109px;
     background-color: #fffefe;
-    display: flex;
-    align-items: center;
-    padding-left: 323px;
+    padding-left: calc(1005px / 1920 * 100vw); /* 첫 번째 버튼의 시작 위치를 조정합니다. */
 }
 
 .navbar h1 {
@@ -39,7 +42,6 @@
     left: 323px;
     font-family: 'made_soulmaze', sans-serif;
     letter-spacing: 0em;
-    text-align: left;
     font-size: 40px;
     font-weight: 400;
     line-height: 53px;
@@ -58,37 +60,38 @@
     font-weight: 400;
     line-height: 53px;
     color: #0034A6;
+    margin-left: 10px;
     text-decoration: none; /* 링크 밑줄 제거 */
 }
 
+
 .navbar-button {
-    position: absolute;
-    width: 81px;
     height: 22px;
-    top: 45px;
-    left: 1005px;
     font-size: 20px;
     font-weight: 800;
     line-height: 22px;
     letter-spacing: -0.01em;
-    text-align: center;
     color: #909090;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-right: 100px; /* 각 버튼 사이의 간격을 조정합니다. */
+}
+/* 로고와 버튼들 사이의 공간을 만들기 위한 설정 */
+.navbar > .spacer {
+    flex-grow: 1;
 }
 
-#analysis { left: 1005px; }
-#summary { left: 1177px; }
-#member { left: 1349px; }
-#history { left: 1521px; width: 76px; }
+#history {
+    margin-right: 100px; /* 마지막 버튼이므로 마진을 제거합니다. */
+}
 
 .navbar-line {
     position: absolute;
     top: 109px;
     left: 0;
-    width: 1920px;
+    width: 100%;
     height: 2px;
     background-color: #DFDFDF;
     border: 2px solid #DFDFDF;
@@ -96,9 +99,6 @@
 .navbar a:hover {
     background-color: #ddd;
     color: black;
-}
-#textfile {
-    display: none;
 }
 .top-section {
     position: relative;

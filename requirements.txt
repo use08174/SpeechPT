@@ -4,7 +4,7 @@ numpy
 opencv-python 
 onnxruntime
 pillow
-PyMuPDF
+PyMuPDF2
 python-docx
 transformers
 dlib == 19.17.*
@@ -14,3 +14,6 @@ ffmpeg-python
 python-multipart
 Jinja2
 cmake
+torch 
+torchvision
+torchaudio

@@ -159,11 +159,13 @@ async function uploadFile() {
               // Display speech speed
               const speechSpeedElement = document.createElement('div');
               speechSpeedElement.textContent = data.speech.speed;
+              speechSpeedElement.classList.add('result-text'); // CSS 클래스 추가
               lineBox2.appendChild(speechSpeedElement);
 
               // Display number of pauses
               const numPausesElement = document.createElement('div');
               numPausesElement.textContent = data.speech.num_pauses;
+              numPausesElement.classList.add('result-text'); // CSS 클래스 추가
               lineBox4.appendChild(numPausesElement);
 
               // Display filler words
@@ -171,17 +173,20 @@ async function uploadFile() {
               const fillerWords = data.speech.filler_words;
               const fillerWordsElement = document.createElement('div');
               fillerWordsElement.textContent = fillerWords;
+              fillerWordsElement.classList.add('result-text'); // CSS 클래스 추가
               lineBox6.appendChild(fillerWordsElement);
 
               // Display emotion analysis
               const emotionAnalysis = data.emotion.emotion.join(", ");
               const emotionElement = document.createElement('div');
               emotionElement.textContent = emotionAnalysis;
+              emotionElement.classList.add('result-text'); // CSS 클래스 추가
               lineBox8.appendChild(emotionElement);
 
               // Display gaze tracking
               const gazeTrackingElement = document.createElement('div');
               gazeTrackingElement.textContent = data.gaze;
+              gazeTrackingElement.classList.add('result-text'); // CSS 클래스 추가
               lineBox10.appendChild(gazeTrackingElement);
           } else {
               throw new Error('Failed to fetch analysis result');
@@ -242,7 +247,7 @@ async function removeFile() {
   uploadButton.removeChild(newBox2);
 }
 
-
+/*
 function displayResult(result, sessionId) {
     let resultsDiv = document.getElementById('analysisResults');
     if (!resultsDiv) {
@@ -278,7 +283,7 @@ function displayResult(result, sessionId) {
         speedResult.textContent = `결과: 표정 ${result.emotion.emotion}`;
     }
 }
-
+*/
 
 function truncateText(text, maxLength) {
   var truncated = text;

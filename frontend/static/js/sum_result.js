@@ -155,7 +155,7 @@ async function uploadFile() {
         console.log('Analysis complete:', data);
         const resultBox = document.querySelector('.summary-content');
         const summaryElement = document.createElement('div');
-        summaryElement.textContent = data.result.result;
+        summaryElement.textContent = data.result.summarized_text;
         resultBox.appendChild(summaryElement);
       }
       } catch (error) {

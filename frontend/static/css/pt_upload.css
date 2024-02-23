@@ -24,15 +24,17 @@
 /* Style for the logo */
 
 .navbar {
-    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
     top: 0;
     left: 0;
-    width: 1920px;
+    overflow: hidden;
+    width: 100%;
     height: 109px;
     background-color: #fffefe;
-    display: flex;
-    align-items: center;
-    padding-left: 323px;
+    padding-left: calc(1005px / 1920 * 100vw); /* 첫 번째 버튼의 시작 위치를 조정합니다. */
 }
 
 .navbar h1 {
@@ -42,7 +44,6 @@
     left: 323px;
     font-family: 'made_soulmaze', sans-serif;
     letter-spacing: 0em;
-    text-align: left;
     font-size: 40px;
     font-weight: 400;
     line-height: 53px;
@@ -61,38 +62,38 @@
     font-weight: 400;
     line-height: 53px;
     color: #0034A6;
+    margin-left: 10px;
     text-decoration: none; /* 링크 밑줄 제거 */
 }
 
 
 .navbar-button {
-    position: absolute;
-    width: 81px;
     height: 22px;
-    top: 45px;
-    left: 1005px;
     font-size: 20px;
     font-weight: 800;
     line-height: 22px;
     letter-spacing: -0.01em;
-    text-align: center;
     color: #909090;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-right: 100px; /* 각 버튼 사이의 간격을 조정합니다. */
+}
+/* 로고와 버튼들 사이의 공간을 만들기 위한 설정 */
+.navbar > .spacer {
+    flex-grow: 1;
 }
 
-#analysis { left: 1005px; }
-#summary { left: 1177px; }
-#member { left: 1349px; }
-#history { left: 1521px; width: 76px; }
+#history {
+    margin-right: 100px; /* 마지막 버튼이므로 마진을 제거합니다. */
+}
 
 .navbar-line {
     position: absolute;
     top: 109px;
     left: 0;
-    width: 1920px;
+    width: 100%;
     height: 2px;
     background-color: #DFDFDF;
     border: 2px solid #DFDFDF;
@@ -106,6 +107,7 @@
     width: 1920px;
     height: auto; /* 높이는 내용에 따라 자동으로 결정되도록 설정 */
 }
+
 
 .people-icon {
     position: absolute;
@@ -158,6 +160,7 @@
   justify-content : center;
   padding-top : 70px;
 }
+
 #result_font3{
     color: #909090;
     font-family: 'NanumSquareNeo', sans-serif;
@@ -264,8 +267,8 @@
 }
 #result_svg{
     position: absolute;
-    top : 549px;
-    left: 330px;
+    top : 30%;
+    left: 7%;
 }
   
 #newBox{
@@ -518,6 +521,16 @@
     content: url('../img/speedometer.png');
     filter: invert(100%);
 }
+.result-text {
+    font-family: 'NanumSquareNeo-Variable', sans-serif; 
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 2.0;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #909090;
+    padding: 20px 10px 10px 10px;
+}
 
 .line-box-2 {
     position: absolute;
@@ -529,22 +542,8 @@
     background: linear-gradient(0deg, #FCFCFC, #FCFCFC);
     border: 1.5px solid #DFDFDF;
     box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.08);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* 두 번째 네모 안의 선에 대한 스타일 */
-.line-box-2::before {
-    content: '';
-    position: absolute;
-    width: 681px;
-    height: 1.5px; /* 선의 높이 */
-    background: #DFDFDF;
-    top: 93px; /* 두 번째 네모 상단으로부터의 상대 위치 조정 */
-    left: 0;
-    transform: translateX(28px); /* 선을 중앙으로 정렬하기 위한 조정 */
-}
 
 /* 세 번째 네모: Pause 박스 스타일 */
 .pause-box {
@@ -574,6 +573,7 @@
 }
 
 /* 발표 도중 평균 일시정지 시간을 분석 텍스트 스타일 */
+
 .subtext-3 {
     width: 199px;
     height: 14px;
@@ -614,16 +614,9 @@
     box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.08);
 }
 
+
+
 /* 네 번째 네모 내의 선 스타일 */
-.line-box-4::before {
-    content: '';
-    position: absolute;
-    width: 681px;
-    height: 1.5px;
-    background: #DFDFDF;
-    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
-    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
-}
 
 .box-filler-words-box {
     width: 737px;
@@ -687,15 +680,6 @@
     box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.14); /* #00000014을 rgba로 변환 */
 }
 
-.line-box-6::before {
-    content: '';
-    position: absolute;
-    width: 681px;
-    height: 1.5px;
-    background: #DFDFDF;
-    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
-    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
-}
 
 
 .box-emotion {
@@ -760,15 +744,6 @@
     box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.14); /* #00000014을 rgba로 변환 */
 }
 
-.line-box-8::before {
-    content: '';
-    position: absolute;
-    width: 681px;
-    height: 1.5px;
-    background: #DFDFDF;
-    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
-    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
-}
 
 .box-gaze-tracking {
     width: 737px;
@@ -833,13 +808,4 @@
     box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.14); /* #00000014을 rgba로 변환 */
 }
 
-.line-box-10::before {
-    content: '';
-    position: absolute;
-    width: 681px;
-    height: 1.5px;
-    background: #DFDFDF;
-    top: 93px; /* 네 번째 네모의 상단으로부터의 상대적 위치 조정 */
-    left: 28px; /* 네 번째 네모의 왼쪽으로부터의 상대적 위치 조정 */
-}
 
