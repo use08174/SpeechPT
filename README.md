@@ -26,7 +26,9 @@ uvicorn main:app --reload
 ```
 
 
-
+## Our Project Archive
+This is our notion page for our project archive. 
+[Notion](https://odd-polyester-d27.notion.site/AI-cdf2556e1b3d4c3698c93cc3a04f139f )
 
 ## Members
 ### 🎵 Audio 팀
