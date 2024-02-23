@@ -20,6 +20,9 @@
     height: 1705px;
 }
 
+input[type="file"] {
+    display: none;
+}
 
 .navbar {
     display: flex;
