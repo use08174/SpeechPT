@@ -26,24 +26,33 @@ uvicorn main:app --reload
 ```
 
 ## Key Features
-Our project has two key features: 'presentation analysis' and 'text summarization'.
+Our project has two key features: `presentation analysis` and `text summarization`.
 
 
 <img src="assets/main.png" width="700">
 
 
-### Presentation analysis 
-- Speed : Calculate cpm to analyze speed of the speech. 
-- Pause : Calculate number of pauses and duration of pauses during speech.
-- Filler words : Detect korean filler words in the speech.
-- Face Expression : Analyze face expression of the presenter.
-- Gaze Tracking : Tracking gaze of the presenter.
+## Presentation analysis 
+### Speech Analysis
+After `STT` using Google STT API, we implemented three functions as follow.
+
+- `Speed` : Calculate cpm to analyze speed of the speech. (cpm : character per minute)
+- `Pause` : Calculate number of pauses and duration of pauses during speech.
+- `Filler words` : Detect korean filler words in the speech.
+
+### Video Analysis
+- `Face Expression` : Analyze face expression of the presenter.
+- `Gaze Tracking` : Tracking gaze of the presenter.
+
 
 <img src="assets/presentation_result_1.png" width="700">
 <img src="assets/presentation_result_2.png" width="700">
 
-### Text summarization
-- Summarize text : Extracting and analyzing presentation materials.
+## Text summarization
+- `Summarize text`
+  1) Extract text from a document (pdf,word) and summarize text by paragraph using [`Kobart`](https://github.com/SKT-AI/KoBART) 
+  2) Check the spelling and save the final summary to the document
+
 
 <img src="assets/sum_result.png" width="700">
 
