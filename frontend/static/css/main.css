@@ -20,7 +20,7 @@
 body, html {
     width: 100%;
     height: 100%;
-		background-image: url('../img/web-background-3.png'); /* 이미지 경로는 실제 위치에 맞게 조정해야 합니다. */
+		background-image: url('../img/background.png'); /* 이미지 경로는 실제 위치에 맞게 조정해야 합니다. */
 		background-size: cover; /* 이미지가 전체 화면을 꽉 채우도록 조정 */
 		background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
 }
