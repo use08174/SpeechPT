@@ -8,7 +8,7 @@
 * [Members](#Members)
 
 
-## Installation
+## How to Use
 1. Clone the repository :
 ```
 git clone https://github.com/use08174/SpeechPT.git
@@ -25,9 +25,20 @@ cd SpeechPT/backend/app
 uvicorn main:app --reload
 ```
 
+## Key Features
+Our project has two key features: 'presentation analysis' and 'text summarization'.
+### presentation analysis 
+- Speed : Calculate cpm to analyze speed of the speech. 
+- Pause : Calculate number of pauses and duration of pauses during speech.
+- Filler words : Detect korean filler words in the speech.
+- Face Expression : Analyze face expression of the presenter.
+- Gaze Tracking : Tracking gaze of the presenter.
+
+### text summarization
+- Summarize text : Extracting and analyzing presentation materials.
 
 ## Our Project Archive
-This is our notion page for our project archive. 
+This is our notion page for our project archive. : 
 [Notion](https://odd-polyester-d27.notion.site/AI-cdf2556e1b3d4c3698c93cc3a04f139f )
 
 ## Members
