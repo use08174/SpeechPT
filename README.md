@@ -29,7 +29,7 @@ uvicorn main:app --reload
 Our project has two key features: 'presentation analysis' and 'text summarization'.
 
 
-<img src="assets/main.png" width="500">
+<img src="assets/main.png" width="600">
 
 
 ### Presentation analysis 
@@ -39,12 +39,12 @@ Our project has two key features: 'presentation analysis' and 'text summarizatio
 - Face Expression : Analyze face expression of the presenter.
 - Gaze Tracking : Tracking gaze of the presenter.
 
-<img src="assets/pt_result.png" width="500">
+<img src="assets/pt_result.png" width="600">
 
 ### Text summarization
 - Summarize text : Extracting and analyzing presentation materials.
 
-<img src="assets/text_result.png" width="500">
+<img src="assets/sum_result.png" width="600">
 
 ## Our Project Archive
 This is our notion page for our project archive. : 
