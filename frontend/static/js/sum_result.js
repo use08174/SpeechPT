@@ -102,11 +102,11 @@ async function uploadFile() {
   function result() {
     document.getElementById('anal_spinner').style.display = 'none';
     document.getElementById('analysis-exp-text3').style.display = 'none'
-    document.querySelector('.circle-checkmark').style.display = 'block';
+    document.querySelector('.svg4').style.display = 'block';
     document.querySelector('.file-name-display').style.display = 'block';
     const analBox = document.querySelector('.analysis-box');
     const resulttext = document.createElement('div');
-    resulttext.id = 'result_font3';
+    resulttext.id = 'analysis-exp-text3';
     resulttext.innerText = '분석 완료';
     analBox.appendChild(resulttext);
     analBox.style.border='2px solid #DFDFDF';
@@ -122,11 +122,11 @@ async function uploadFile() {
     const fileSizeInMB = file.size/1024/1024;
     fileNameElement3.innerText = fileSizeInMB.toFixed(2)+'MB';
 
-    const resultBox = document.querySelector('.summary-content');
+    const resultBox = document.querySelector('.file-name-display');
     resultBox.appendChild(fileNameElement);
     resultBox.appendChild(fileNameElement3);
      
-    svgElement.id = 'result_svg';
+    svgElement.className = 'result_svg';
     resultBox.appendChild(svgElement);
   }
   async function anal() {
@@ -156,7 +156,15 @@ async function uploadFile() {
         const resultBox = document.querySelector('.summary-content');
         const summaryElement = document.createElement('div');
         summaryElement.textContent = data.result.summarized_text;
-        resultBox.appendChild(summaryElement);
+        var paragraphs = data.result.summarized_text.join('').split("<br>");
+        for (var i =0; i < paragraphs.length; i++){
+          var child = document.createTextNode(paragraphs[i])
+          resultBox.appendChild(child)
+          resultBox.appendChild(document.createElement('br'));
+          resultBox.appendChild(document.createElement('br'));
+        }
+        // resultBox.appendChild(summaryElement);
+
       }
       } catch (error) {
         console.error('Error:', error);
