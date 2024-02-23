@@ -27,15 +27,24 @@ uvicorn main:app --reload
 
 ## Key Features
 Our project has two key features: 'presentation analysis' and 'text summarization'.
-### presentation analysis 
+
+
+<img src="assets/main.png" width="500">
+
+
+### Presentation analysis 
 - Speed : Calculate cpm to analyze speed of the speech. 
 - Pause : Calculate number of pauses and duration of pauses during speech.
 - Filler words : Detect korean filler words in the speech.
 - Face Expression : Analyze face expression of the presenter.
 - Gaze Tracking : Tracking gaze of the presenter.
 
-### text summarization
+<img src="assets/pt_result.png" width="500">
+
+### Text summarization
 - Summarize text : Extracting and analyzing presentation materials.
+
+<img src="assets/text_result.png" width="500">
 
 ## Our Project Archive
 This is our notion page for our project archive. : 
