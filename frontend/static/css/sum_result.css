@@ -390,6 +390,17 @@
     top: 21px;
     left : 29px;
 }
+.result_svg{
+    position: relative;
+    top : 30%;
+    left : 7%;
+}
+
+.svg4 {
+    position : absolute;
+    top: 100px;
+    left : 100px;
+}
 
 #fileNameElementId{
     color: #909090;

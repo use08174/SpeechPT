@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary Result Page</title>
     <link rel="stylesheet" href="../static/css/sum_result.css">
-    <link rel="stylesheet" href="../static/js/pt_result.js">
+    <link rel="stylesheet" href="../static/js/sum_result.js">
 </head>
 <body>
     <div class="navbar">
@@ -26,7 +26,7 @@
 
     <!-- <div class="analysis-box"> -->
     <input type="file" id="textfile" accept=".docx, .ppt, .pdf" onchange="uploadFile()">
-    <button src="/static/upload_button.png" class="analysis-box" onclick="document.getElementById('textfile').click();">
+    <button  class="analysis-box" onclick="document.getElementById('textfile').click();">
         <svg class = 'upload_svg' xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
             <mask id="mask0_39_984" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
                 <path d="M0.444824 0H39.9999V39.5551H0.444824V0Z" fill="white"/>
@@ -42,15 +42,11 @@
         <div id = 'analysis-exp-text2'>
             *ppt, docx, pdf파일<br>
             *파일당 최대 50MB</div>
-
-        <!-- <div class="analysis-complete-text">분석 완료</div> -->
+        <svg class="svg4" style="display: none;" width="62" height="62"  fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.7222 29.9746L28.4368 38.6893L44.3282 22.7979" stroke="#BBBBBB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="31" cy="31" r="29" stroke="#BBBBBB" stroke-width="4"/>
+        </svg>
     </button>
-    <!-- </div> -->
-
-    <div class="file-name-display" style="display: none;">
-        <img src="../static/img/docs.png" alt="docs" class="icon docs-icon">
-        <span class="file-name">**your_actual_file_name.txt**</span>
-    </div>
 
     <button class= 'delete_svg' style="display: none;" onclick="removeFile()">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" fill="none">
@@ -64,12 +60,6 @@
         <div id = 'anal_spinner' style="display: none;"></div>
     </div>
 
-    <div class="circle-checkmark" style="display: none;">
-        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-        </svg>
-    </div>
 
     <div class = 'file-name-display' style="display: none;"></div>
 
