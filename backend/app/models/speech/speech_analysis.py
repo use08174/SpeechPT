@@ -18,7 +18,7 @@ def perform_stt(audio_file_path):
     except sr.UnknownValueError:
         return "Audio could not be understood"
     except sr.RequestError as e:
-        return f"Service error: {e}"
+        return f"Service error: {e}" 
 
 def analyze_speed(audio_file, stt_transcript):
     audio = AudioSegment.from_file(audio_file)

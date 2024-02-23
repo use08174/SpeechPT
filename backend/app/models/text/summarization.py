@@ -112,9 +112,9 @@ def summarize_text(extracted_text):
         except Exception as e:
             print("An unexpected error occurred:", e)
             continue
-    #     summary_paragraphs.append(summary_text)
-    #     print(summary_text)
-    # return summary_paragraphs
+        # summary_paragraphs.append(summary_text)
+        # print(summary_text)
+        # return summary_paragraphs
         checked_txt = ""
         for j in range(0, len(summary_text), 1000):
              part_of_txt = summary_text[j:j+1000]
@@ -122,9 +122,8 @@ def summarize_text(extracted_text):
                  spelled_sent = spell_checker.check(part_of_txt)
                  checked_txt += spelled_sent.checked
              except KeyError as e:
-                # Handle the error as needed
                 print(f"A KeyError occurred at paragraph {i}, index {j}: {e}")
-                break  # Stop the loop if an error occurs
+                break 
              except Exception as e:
                 print(f"An unexpected error occurred at paragraph {i}, index {j}: {e}")
         summary_paragraphs.append(f"<br>Paragraph {i}<br>")
