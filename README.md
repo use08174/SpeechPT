@@ -39,7 +39,8 @@ Our project has two key features: 'presentation analysis' and 'text summarizatio
 - Face Expression : Analyze face expression of the presenter.
 - Gaze Tracking : Tracking gaze of the presenter.
 
-<img src="assets/presentation_result.png" width="700">
+<img src="assets/presentation_result_1.png" width="700">
+<img src="assets/presentation_result_2.png" width="700">
 
 ### Text summarization
 - Summarize text : Extracting and analyzing presentation materials.
