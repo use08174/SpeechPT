@@ -61,18 +61,16 @@ This is our notion page for our project archive. :
 [Notion](https://odd-polyester-d27.notion.site/AI-cdf2556e1b3d4c3698c93cc3a04f139f )
 
 ## Members
-### 🎵 Audio 팀
-- 심수민 
-- 김수홍 
-- 배아람 
-
-### 🎥 Video 팀
-- 문승현 
-- 남승현 
-
-### 📝 Text 팀
-- 윤선미 
-- 임서연 
+|멤버이름|역할|
+|------|---|
+|심수민|Leader, Audio, Backend|
+|배아람|Audio, Frontend|
+|김수홍|Audio, Frontend|
+|문승현|Video, Backend|
+|남승현|Video, Frontend|
+|윤선미|Text, Frontend|
+|임서연|Text, Backend|
+|안서연|UI Design|
 
 
 More about Prometheus : https://prometheus-ai.net/
