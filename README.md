@@ -67,7 +67,7 @@ This is our notion page for our project archive. :
 |배아람|Audio, Frontend|
 |김수홍|Audio, Frontend|
 |문승현|Video, Backend|
-|남승현|Video, Frontend|
+|남승현|Video, Backend|
 |윤선미|Text, Frontend|
 |임서연|Text, Backend|
 |안서연|UI Design|
